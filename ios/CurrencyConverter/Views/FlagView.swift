@@ -31,6 +31,11 @@ struct FlagView: View {
                     .scaledToFill()
             } else {
                 Circle().fill(lineColor)
+                    .overlay(
+                        Text("?")
+                            .font(AppFont.bold(12))
+                            .foregroundStyle(Color.gray)
+                    )
             }
         }
         .frame(width: size, height: size)

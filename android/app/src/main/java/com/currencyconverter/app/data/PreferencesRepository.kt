@@ -1,6 +1,7 @@
 package com.currencyconverter.app.data
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -32,10 +33,13 @@ class PreferencesRepository(private val context: Context) {
         val defaults = PersistedSettings()
         val favsRaw = prefs[Keys.FAVS]
         val favs = favsRaw?.split(",")?.filter { it.isNotBlank() } ?: defaults.favorites
+        // First launch (no saved choice): follow the system dark mode — matches iOS behaviour.
+        val systemDark = (context.resources.configuration.uiMode and
+            Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
         return PersistedSettings(
             fromCode = prefs[Keys.FROM] ?: defaults.fromCode,
             toCode = prefs[Keys.TO] ?: defaults.toCode,
-            darkTheme = prefs[Keys.DARK] ?: defaults.darkTheme,
+            darkTheme = prefs[Keys.DARK] ?: systemDark,
             favorites = favs,
         )
     }

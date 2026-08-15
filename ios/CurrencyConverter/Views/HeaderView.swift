@@ -21,16 +21,16 @@ struct HeaderView: View {
             // never set by the user, so this is intentionally not a Button.
             HStack(spacing: 7) {
                 Circle()
-                    .fill(vm.isOnline ? Color(hex: "1FB264") : theme.muted)
+                    .fill(vm.isOnline ? theme.accent : theme.muted)
                     .frame(width: 6, height: 6)
                 Text(vm.modeLabel)
                     .font(AppFont.extraBold(11))
                     .tracking(0.2)
             }
-            .foregroundStyle(theme.accentText)
+            .foregroundStyle(vm.isOnline ? theme.accentText : theme.muted)
             .padding(.horizontal, 13)
             .frame(height: 34)
-            .background(Capsule().fill(theme.accentSoft))
+            .background(Capsule().fill(vm.isOnline ? theme.accentSoft : theme.key))
             .accessibilityIdentifier("networkStatusChip")
 
             Button {

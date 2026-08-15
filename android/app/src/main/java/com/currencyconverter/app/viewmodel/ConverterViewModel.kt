@@ -167,7 +167,7 @@ class ConverterViewModel(
             toValue = toStr,
             activeTo = raw.side == EntrySide.TO,
             rateLine = ConverterEngine.rateLine(raw.fromCode, raw.toCode, fRate, tRate),
-            updatedLine = updatedLine(snapshot),
+            updatedLine = if (raw.isRefreshing) "Updating…" else updatedLine(snapshot),
             modeLabel = if (online) "Online" else "Offline",
             online = online,
             darkTheme = raw.darkTheme,

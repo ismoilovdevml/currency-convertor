@@ -175,7 +175,8 @@ final class ConverterViewModel {
         if minutes < 1 { return "Updated just now" }
         if minutes < 60 { return "Updated \(minutes)m ago" }
         let hours = minutes / 60
-        return "Updated \(hours)h ago"
+        if hours < 24 { return "Updated \(hours)h ago" }
+        return "Updated \(hours / 24)d ago"
     }
 
     // MARK: - Currency sheet
