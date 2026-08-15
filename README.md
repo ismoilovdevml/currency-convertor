@@ -1,11 +1,9 @@
 <div align="center">
 
-<img src="docs/screenshots/ios-light.png" alt="" width="0" height="0" />
-
-# 💱 Currency Converter
+# Currency Converter
 
 **Offline-first currency converter — native iOS & Android.**
-166 currencies · real exchange rates · works with zero network · free, no API key, no ads.
+166 currencies · real exchange rates · works offline · free, no API key, no ads.
 
 [![Download APK](https://img.shields.io/github/v/release/ismoilovdevml/currency-convertor?label=Download%20APK&logo=android&logoColor=white&color=10A56B&style=for-the-badge)](https://github.com/ismoilovdevml/currency-convertor/releases/latest/download/CurrencyConverter.apk)
 
@@ -17,81 +15,62 @@
 
 ---
 
-## 📥 Download
+## Download
 
-**Android:** [**Download the latest APK →**](https://github.com/ismoilovdevml/currency-convertor/releases/latest/download/CurrencyConverter.apk) — one tap, sideload, done.
-Every tagged release ships an installable APK. iOS is built from source (see below).
+**Android** — [download the latest APK](https://github.com/ismoilovdevml/currency-convertor/releases/latest/download/CurrencyConverter.apk) and sideload it. Every tagged release ships an installable, signed APK.
+**iOS** — build from source (below).
 
----
-
-## 📸 Screenshots
+## Screenshots
 
 |  | Light | Dark | Currency picker |
 |---|---|---|---|
-| **iOS** <br/>SwiftUI | <img src="docs/screenshots/ios-light.png" width="220"/> | <img src="docs/screenshots/ios-dark.png" width="220"/> | <img src="docs/screenshots/ios-sheet.png" width="220"/> |
-| **Android** <br/>Compose | <img src="docs/screenshots/android-light.png" width="220"/> | <img src="docs/screenshots/android-dark.png" width="220"/> | <img src="docs/screenshots/android-sheet.png" width="220"/> |
+| **iOS** | <img src="docs/screenshots/ios-light.png" width="220" alt="iOS light"/> | <img src="docs/screenshots/ios-dark.png" width="220" alt="iOS dark"/> | <img src="docs/screenshots/ios-sheet.png" width="220" alt="iOS picker"/> |
+| **Android** | <img src="docs/screenshots/android-light.png" width="220" alt="Android light"/> | <img src="docs/screenshots/android-dark.png" width="220" alt="Android dark"/> | <img src="docs/screenshots/android-sheet.png" width="220" alt="Android picker"/> |
 
----
+## Features
 
-## ✨ Features
+- Works fully offline — a rates snapshot ships inside the app, so conversion works on first launch with no network.
+- Real cross-rate math through a USD base: `amount ÷ rate[from] × rate[to]`.
+- 166 currencies, each with a circular flag; type into either side.
+- Automatic online/offline from the real network state, with a "last updated" timestamp.
+- Favourites, search, and light/dark theme — all remembered across launches.
+- 29 UI languages, following the device language (RTL for Arabic/Persian). Currency names are localized by the OS.
+- Long-press ⌫ to clear the whole amount.
 
-- **Works fully offline** — a rates snapshot ships inside the app, so conversion works on first launch with no network.
-- **Real conversion** — cross-rate math through a USD base: `result = amount ÷ rate[from] × rate[to]`.
-- **166 currencies**, each with a circular flag (supranational currencies like XAF/XOF/XDR get a coloured code badge); live editing on either side with a tabular, auto-shrinking amount.
-- **Automatic Online / Offline** — follows the real network state; no manual toggle. The meta row shows when rates were last updated ("Updated 5m ago").
-- **⭐ Favourites** — star currencies; they sort to the top and persist (none starred by default).
-- **Search** currencies by code or country, with a search icon and auto-focus.
-- **Light & dark themes**, remembered across launches (along with your from/to pair and favourites).
-- **Responsive** — the layout adapts from small phones to large tablets; the keypad never clips.
-- **30 languages** — UI localized into 30 languages (en, uz, ru, es, zh, ar, hi, fr, de, ja, tr, ko, kk, and more; RTL for Arabic/Persian/Hebrew). Currency names come from the OS (CLDR), so they localize too. Follows the device language automatically — no in-app picker.
-- **Long-press ⌫** to clear the whole amount at once.
+## How it works
 
-## 🏗️ How it works
-
-Both apps share one data contract (`shared/`) and mirror the same layers:
+Both apps share one data contract (`shared/`) and the same layers:
 
 ```
-UI (SwiftUI / Compose) → ViewModel → ConverterEngine (pure math, unit-tested)
-                                   → RatesRepository
-                                        ├─ Bundled seed   → offline on day one
-                                        ├─ Local cache    → last fetched rates + timestamp
-                                        └─ Remote (free)  → open.er-api.com → fawazahmed0 fallback
+UI (SwiftUI / Compose) → ViewModel → ConverterEngine (pure math)
+                                   → RatesRepository: bundled seed → cache → free API
 ```
 
-Rates are stored relative to **USD** (`USD = 1`). Offline is the default path; the network only *refreshes* the cache — it is never required to convert.
+Rates are stored relative to USD. Offline is the default path; the network only refreshes the cache.
 
-## 🚀 Build & run
+## Build
 
-**Android** (JDK 21 + Android SDK):
+**Android** — JDK 21 + Android SDK
+
 ```bash
-cd android
-./gradlew assembleDebug        # build
-./gradlew installDebug         # install on a running emulator/device
-./gradlew testDebugUnitTest    # unit tests
+cd android && ./gradlew assembleDebug
 ```
 
-**iOS** (Xcode 16+, [XcodeGen](https://github.com/yonaskolb/XcodeGen)):
+**iOS** — Xcode 16+ and [XcodeGen](https://github.com/yonaskolb/XcodeGen)
+
 ```bash
-cd ios
-xcodegen generate
-xcodebuild -scheme CurrencyConverter \
-  -destination 'platform=iOS Simulator,name=iPhone 16 Pro' build
+cd ios && xcodegen generate && xcodebuild -scheme CurrencyConverter build
 ```
 
-## 🗂️ Structure
+## Structure
 
 ```
-shared/     currencies.json · seed-rates.json · flags/ · branding/   (single source of truth)
-android/    Kotlin · Jetpack Compose (Material3) · DataStore
-ios/        Swift · SwiftUI (MVVM) · XcodeGen
-docs/       SPEC.md · screenshots/
-.github/    CI (lint · test · build) · Release (tag → APK)
+shared/   currencies.json · seed-rates.json · flags/ · i18n/
+android/  Kotlin · Jetpack Compose
+ios/      Swift · SwiftUI
+.github/  CI + Release (tag → signed APK)
 ```
 
-## 🛠️ Tech
+## License
 
-`Kotlin` · `Jetpack Compose` · `Swift` · `SwiftUI` · `Coroutines` · `DataStore` · `GitHub Actions`
-
-## 📄 License
-
-[MIT](LICENSE) © 2026 ismoilovdevml
+MIT © 2026 ismoilovdevml
