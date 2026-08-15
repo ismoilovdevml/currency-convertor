@@ -42,6 +42,7 @@ jobs:
           APK="$(find android/app/build/outputs/apk/release -name '*.apk' | head -1)"
           BT="$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)"
           "$BT/apksigner" verify --verbose "$APK" | grep -iE "scheme|signers"
+          "$BT/apksigner" verify --print-certs "$APK" | grep -iE "certificate DN"
           cp "$APK" CurrencyConverter.apk
 
       - name: Publish GitHub Release
