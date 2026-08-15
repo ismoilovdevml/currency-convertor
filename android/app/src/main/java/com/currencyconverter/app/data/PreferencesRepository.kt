@@ -13,8 +13,8 @@ data class PersistedSettings(
     val fromCode: String = "USD",
     val toCode: String = "UZS",
     val darkTheme: Boolean = false,
-    /** Ordered by when they were starred (spec: "favourites first, in the order they were starred"). */
-    val favorites: List<String> = listOf("USD", "UZS", "EUR"),
+    /** Ordered by when they were starred. Empty by default — the user picks their own favourites. */
+    val favorites: List<String> = emptyList(),
 )
 
 /** Persists from/to/theme/favourites across launches (spec section: "Persist from, to, favourites, theme"). */

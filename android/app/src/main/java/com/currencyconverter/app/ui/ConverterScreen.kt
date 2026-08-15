@@ -2,6 +2,7 @@ package com.currencyconverter.app.ui
 
 import android.content.res.AssetManager
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.border
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -196,6 +197,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
                 .height(44.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .background(colors.key)
+                .border(1.dp, colors.line, RoundedCornerShape(16.dp))
                 .clickable { viewModel.clearEntry() },
             contentAlignment = Alignment.Center,
         ) {

@@ -28,6 +28,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -131,7 +134,7 @@ fun CurrencySheetOverlay(
                         }
                     }
                     Spacer(Modifier.height(12.dp))
-                    Box(
+                    Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(46.dp)
@@ -139,30 +142,39 @@ fun CurrencySheetOverlay(
                             .background(colors.key)
                             .border(1.dp, colors.line, RoundedCornerShape(14.dp))
                             .padding(horizontal = 14.dp),
-                        contentAlignment = Alignment.CenterStart,
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        if (query.isEmpty()) {
-                            Text(
-                                "Search currency or country",
-                                fontFamily = PlusJakartaSans,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = colors.muted,
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = null,
+                            tint = colors.muted,
+                            modifier = Modifier.size(18.dp),
+                        )
+                        Spacer(Modifier.width(10.dp))
+                        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
+                            if (query.isEmpty()) {
+                                Text(
+                                    "Search currency or country",
+                                    fontFamily = PlusJakartaSans,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = colors.muted,
+                                )
+                            }
+                            BasicTextField(
+                                value = query,
+                                onValueChange = onQueryChange,
+                                singleLine = true,
+                                textStyle = TextStyle(
+                                    fontFamily = PlusJakartaSans,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = colors.fg,
+                                ),
+                                cursorBrush = SolidColor(colors.accent),
+                                modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
                             )
                         }
-                        BasicTextField(
-                            value = query,
-                            onValueChange = onQueryChange,
-                            singleLine = true,
-                            textStyle = TextStyle(
-                                fontFamily = PlusJakartaSans,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = colors.fg,
-                            ),
-                            cursorBrush = SolidColor(colors.accent),
-                            modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
-                        )
                     }
                     Spacer(Modifier.height(8.dp))
                     LazyColumn(modifier = Modifier.fillMaxWidth().weight(1f)) {

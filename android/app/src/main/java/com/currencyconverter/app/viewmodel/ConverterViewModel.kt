@@ -29,8 +29,8 @@ private data class RawState(
     val sheetFor: SheetTarget? = null,
     val query: String = "",
     val isRefreshing: Boolean = false,
-    /** Ordered by when they were starred; favourites sort first in the picker. */
-    val favorites: List<String> = listOf("USD", "UZS", "EUR"),
+    /** Ordered by when they were starred; favourites sort first in the picker. Empty by default. */
+    val favorites: List<String> = emptyList(),
     val settingsLoaded: Boolean = false,
 )
 
