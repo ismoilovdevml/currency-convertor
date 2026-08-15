@@ -4,6 +4,7 @@ options:
   deploymentTarget:
     iOS: "17.0"
   createIntermediateGroups: true
+  developmentLanguage: en
 
 configs:
   Debug: debug
@@ -27,11 +28,43 @@ targets:
       - path: CurrencyConverter/Resources/Fonts
       - path: CurrencyConverter/Resources/flags
         type: folder
+      - path: CurrencyConverter/Resources/Localizations
       - path: CurrencyConverter/Assets.xcassets
     info:
       path: Generated/CurrencyConverter-Info.plist
       properties:
         CFBundleDisplayName: Currency Converter
+        CFBundleLocalizations:
+          - en
+          - uz
+          - ru
+          - es
+          - zh-Hans
+          - ar
+          - hi
+          - pt
+          - fr
+          - de
+          - ja
+          - tr
+          - it
+          - ko
+          - id
+          - vi
+          - th
+          - fa
+          - ur
+          - bn
+          - pl
+          - uk
+          - nl
+          - ms
+          - kk
+          - ky
+          - az
+          - he
+          - sv
+          - ro
         UILaunchScreen: {}
         UIAppFonts:
           - PlusJakartaSans-Regular.ttf

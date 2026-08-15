@@ -9,7 +9,7 @@ struct ConverterCardView: View {
             CurrencyRowHeader(
                 cc: vm.fromCurrency?.cc,
                 code: vm.fromCode,
-                name: vm.fromCurrency?.name ?? vm.fromCode,
+                name: vm.fromCurrency?.localizedName ?? vm.fromCode,
                 theme: theme,
                 codeIdentifier: "fromCodeText"
             ) {
@@ -48,7 +48,7 @@ struct ConverterCardView: View {
             CurrencyRowHeader(
                 cc: vm.toCurrency?.cc,
                 code: vm.toCode,
-                name: vm.toCurrency?.name ?? vm.toCode,
+                name: vm.toCurrency?.localizedName ?? vm.toCode,
                 theme: theme,
                 codeIdentifier: "toCodeText"
             ) {

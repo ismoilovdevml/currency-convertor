@@ -1,0 +1,13 @@
+"app_title" = "Konvertor";
+"status_online" = "Onlayn";
+"status_offline" = "Oflayn";
+"clear" = "Tozalash";
+"search_hint" = "Valyuta yoki davlatni qidiring";
+"convert_from" = "Manba valyuta";
+"convert_to" = "Maqsad valyuta";
+"updated_just_now" = "Hozirgina yangilandi";
+"updated_minutes" = "%d daq oldin";
+"updated_hours" = "%d soat oldin";
+"updated_days" = "%d kun oldin";
+"not_updated" = "Hali yangilanmagan";
+"updating" = "Yangilanmoqda…";

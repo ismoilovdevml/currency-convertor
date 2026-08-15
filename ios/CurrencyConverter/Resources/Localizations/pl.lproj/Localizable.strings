@@ -1,0 +1,13 @@
+"app_title" = "Przelicznik";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Wyczyść";
+"search_hint" = "Szukaj waluty lub kraju";
+"convert_from" = "Przelicz z";
+"convert_to" = "Przelicz na";
+"updated_just_now" = "Zaktualizowano teraz";
+"updated_minutes" = "Zaktualizowano %d min temu";
+"updated_hours" = "Zaktualizowano %d godz. temu";
+"updated_days" = "Zaktualizowano %d dni temu";
+"not_updated" = "Jeszcze nie zaktualizowano";
+"updating" = "Aktualizowanie…";

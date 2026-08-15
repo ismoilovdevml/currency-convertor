@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Omvandlare</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Rensa</string>
+    <string name="search_hint">Sök valuta eller land</string>
+    <string name="convert_from">Omvandla från</string>
+    <string name="convert_to">Omvandla till</string>
+    <string name="updated_just_now">Uppdaterad nyss</string>
+    <string name="updated_minutes">Uppdaterad %1$d min sedan</string>
+    <string name="updated_hours">Uppdaterad %1$d tim sedan</string>
+    <string name="updated_days">Uppdaterad %1$d d sedan</string>
+    <string name="not_updated">Inte uppdaterad än</string>
+    <string name="updating">Uppdaterar…</string>
+</resources>

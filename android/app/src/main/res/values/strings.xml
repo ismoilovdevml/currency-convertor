@@ -1,3 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Currency Converter</string>
+    <!-- Brand/launcher name — intentionally not translated (matches the iOS app's CFBundleDisplayName). -->
+    <string name="app_name" translatable="false">Currency Converter</string>
+    <string name="app_title">Converter</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Clear</string>
+    <string name="search_hint">Search currency or country</string>
+    <string name="convert_from">Convert from</string>
+    <string name="convert_to">Convert to</string>
+    <string name="updated_just_now">Updated just now</string>
+    <string name="updated_minutes">Updated %1$dm ago</string>
+    <string name="updated_hours">Updated %1$dh ago</string>
+    <string name="updated_days">Updated %1$dd ago</string>
+    <string name="not_updated">Not updated yet</string>
+    <string name="updating">Updating…</string>
 </resources>

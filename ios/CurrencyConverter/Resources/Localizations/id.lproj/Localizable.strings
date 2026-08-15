@@ -1,0 +1,13 @@
+"app_title" = "Konverter";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Hapus";
+"search_hint" = "Cari mata uang atau negara";
+"convert_from" = "Konversi dari";
+"convert_to" = "Konversi ke";
+"updated_just_now" = "Baru saja diperbarui";
+"updated_minutes" = "Diperbarui %d mnt lalu";
+"updated_hours" = "Diperbarui %d jam lalu";
+"updated_days" = "Diperbarui %d hr lalu";
+"not_updated" = "Belum diperbarui";
+"updating" = "Memperbarui…";

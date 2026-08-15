@@ -1,0 +1,13 @@
+"app_title" = "Çevirici";
+"status_online" = "Onlayn";
+"status_offline" = "Oflayn";
+"clear" = "Təmizlə";
+"search_hint" = "Valyuta və ya ölkə axtar";
+"convert_from" = "Bundan çevir";
+"convert_to" = "Buna çevir";
+"updated_just_now" = "İndicə yeniləndi";
+"updated_minutes" = "%d dəq əvvəl yeniləndi";
+"updated_hours" = "%d saat əvvəl yeniləndi";
+"updated_days" = "%d gün əvvəl yeniləndi";
+"not_updated" = "Hələ yenilənməyib";
+"updating" = "Yenilənir…";

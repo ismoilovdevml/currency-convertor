@@ -160,7 +160,9 @@ final class ConverterViewModel {
         ConverterEngine.rateLineText(fromCode: fromCode, toCode: toCode, fromRate: rate(fromCode), toRate: rate(toCode))
     }
 
-    var modeLabel: String { isOnline ? "Online" : "Offline" }
+    var modeLabel: String {
+        isOnline ? String(localized: "status_online") : String(localized: "status_offline")
+    }
     var themeIcon: String { isDarkMode ? "☀" : "☾" }
 
     /// Real "last remote fetch" status, per docs/SPEC.md: "Not updated yet"
@@ -168,20 +170,22 @@ final class ConverterViewModel {
     /// "Updated Xh ago" measured against `lastFetchedAt` (only ever set by
     /// `refreshFromNetwork()` on success — never by the bundled-seed load).
     var updatedLine: String {
-        if isFetching { return "Updating…" }
-        guard let t = lastFetchedAt else { return "Not updated yet" }
+        if isFetching { return String(localized: "updating") }
+        guard let t = lastFetchedAt else { return String(localized: "not_updated") }
         let elapsed = Date().timeIntervalSince(t)
         let minutes = Int(elapsed / 60)
-        if minutes < 1 { return "Updated just now" }
-        if minutes < 60 { return "Updated \(minutes)m ago" }
+        if minutes < 1 { return String(localized: "updated_just_now") }
+        if minutes < 60 { return String(format: String(localized: "updated_minutes"), minutes) }
         let hours = minutes / 60
-        if hours < 24 { return "Updated \(hours)h ago" }
-        return "Updated \(hours / 24)d ago"
+        if hours < 24 { return String(format: String(localized: "updated_hours"), hours) }
+        return String(format: String(localized: "updated_days"), hours / 24)
     }
 
     // MARK: - Currency sheet
 
-    var sheetTitle: String { sheetSide == .from ? "Convert from" : "Convert to" }
+    var sheetTitle: String {
+        sheetSide == .from ? String(localized: "convert_from") : String(localized: "convert_to")
+    }
 
     var sheetRows: [CurrencySheetRow] {
         guard let sheetSide else { return [] }
@@ -189,9 +193,16 @@ final class ConverterViewModel {
         let baseRate = rate(baseCode)
         let selectedCode = sheetSide == .from ? fromCode : toCode
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        // Matches on ISO code, the device-language (CLDR) name, and the
+        // bundled English name — so e.g. a Russian-language UI still finds
+        // "Dollar" typed in English, per user feedback.
         let filtered = q.isEmpty
             ? currencies
-            : currencies.filter { $0.code.lowercased().contains(q) || $0.name.lowercased().contains(q) }
+            : currencies.filter {
+                $0.code.lowercased().contains(q)
+                    || $0.localizedName.lowercased().contains(q)
+                    || $0.name.lowercased().contains(q)
+            }
         // Favorites float to the top (ordered by their position in
         // `favorites`); everything else keeps its original (alphabetical)
         // order — mirrors design2's `.sort((a,b) => (b.fav-a.fav) || favIndex)`.

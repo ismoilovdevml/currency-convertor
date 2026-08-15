@@ -20,6 +20,7 @@
 		64690400E3EE828333FD4596 /* CurrencyConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */; };
 		67141CEB5BC748FF0F11D612 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */; };
 		6DB9D0E56C243958BCD78BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD40307F21E48E0C221BD5B /* Assets.xcassets */; };
+		6F9456C9764FD8278D5919FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC48E71FF47A774D5AF0F595 /* Localizable.strings */; };
 		752226A153442D166A084263 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 260D074AAE90838A232D6762 /* currencies.json */; };
 		A26ECA093194B132FAD77777 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6360634D19A82AAAF251551 /* NetworkMonitor.swift */; };
 		AAC3BD256EBFEBE3C6C4664A /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */; };
@@ -55,37 +56,67 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0350BC3A782B1DC191605BB4 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		03B85B79749FD508B3C6F439 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A8B57924A9EF4F43C6EF954 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D176EC38330CE54C858B45A /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
+		1081B1AC6CC0049BA6D788EF /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16BBFB856624F11F0819800D /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		17397CA0B7078E655B92A934 /* LogoGlyph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoGlyph.swift; sourceTree = "<group>"; };
+		187A2AEF527FDE52C2D87658 /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = bn.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A6F21D81ACB578AA6B87887 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A84A5A04B9CD4BA7A1DAC98 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
+		1E89379024A0F324DA7A0CCE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		24BCB939CB573917ED0BEF0B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		260D074AAE90838A232D6762 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
 		2C32BFBAAA8DF572EA439320 /* BlinkingCaretView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkingCaretView.swift; sourceTree = "<group>"; };
+		2D339D4C53FEF654BF600923 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2EDB87C7DB9A817B655A1753 /* flags */ = {isa = PBXFileReference; lastKnownFileType = folder; name = flags; path = CurrencyConverter/Resources/flags; sourceTree = SOURCE_ROOT; };
 		3DD40307F21E48E0C221BD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9C05DD078BC2CDC7DE73CF /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
+		42E85857BB214C401BEFA4F2 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		524725EB744F961DDDCA152F /* CurrencySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySheetView.swift; sourceTree = "<group>"; };
+		58A7D67ACEDCB2EB956EC796 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B8C3264651018A5033F8EAD /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		60F7F793651CB22DD446D19F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		616E93564FEA6D516477D6A2 /* FlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagView.swift; sourceTree = "<group>"; };
 		641E38B27DCCA728BBF09A69 /* CurrencyConverterUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CurrencyConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		661B8E3A32B42C0961337AE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		67DDB28CF0DAF570FC17FCDD /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6D50B6299879A8BE0D76BE52 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6EF136E874E7C92299226C3B /* seed-rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "seed-rates.json"; sourceTree = "<group>"; };
 		718A3F486A3CE1694A1200AE /* ConverterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCardView.swift; sourceTree = "<group>"; };
 		72F86D6F06DCC90E7D412803 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		790EB180841BCE63562634EA /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		82B3132AF41C02C265F6E8EC /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8627084176AD300E2135E27B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		88176FF9030E171B30B022BE /* ConverterEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterEngine.swift; sourceTree = "<group>"; };
+		8F516917FBEF11AED042AA1F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		916ECCDD4CE93423544B2899 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9456B70B9427462E72D9408C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A25B8C64E8206A1F33522E6C /* CurrencySheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySheetUITests.swift; sourceTree = "<group>"; };
+		A6D1285E39B6AF32DED895A3 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A8EB91686E9013030ED0D13E /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
+		A91D1273DF3117CF38BB1A0A /* ky */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ky; path = ky.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
+		B8ED9486C05624D0219F20C3 /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BC9E948A05CEA85E259486A2 /* CurrencyConverter.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FB8B01F2F44EB500E739AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C43CAE83A67E96E70D196AB8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA26E6161C2DBE2F550BD929 /* RatesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRepository.swift; sourceTree = "<group>"; };
+		E052FCC31C4EBAD0B392507A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2340EEB7CD8BBD2097C1AAB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E5BCED2EA14B14F30FF683B5 /* CurrencyConverterTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78686C85481DA6A0E5FE18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E9649E019E006F2338830851 /* RateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRowView.swift; sourceTree = "<group>"; };
 		EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EB3E7A386AB61A0DE667973B /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC448CD4C4172E38148A3C60 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterApp.swift; sourceTree = "<group>"; };
+		EDBBA044F636D550B4C54960 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6360634D19A82AAAF251551 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F63DC9BA410EB22E23B4D5F1 /* ConverterEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterEngineTests.swift; sourceTree = "<group>"; };
+		FF480008BBFE38FDC1EECCBE /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -96,6 +127,7 @@
 				2EDB87C7DB9A817B655A1753 /* flags */,
 				6EF136E874E7C92299226C3B /* seed-rates.json */,
 				A221C954B55CDC0D8353A781 /* Fonts */,
+				74806A905C6FAFD2539FB6F7 /* Localizations */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -124,6 +156,14 @@
 				ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		74806A905C6FAFD2539FB6F7 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				BC48E71FF47A774D5AF0F595 /* Localizable.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		7F652C2B88D145384E38709B /* Engine */ = {
@@ -306,7 +346,36 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				ar,
+				az,
+				bn,
+				de,
 				en,
+				es,
+				fa,
+				fr,
+				he,
+				hi,
+				id,
+				it,
+				ja,
+				kk,
+				ko,
+				ky,
+				ms,
+				nl,
+				pl,
+				pt,
+				ro,
+				ru,
+				sv,
+				th,
+				tr,
+				uk,
+				ur,
+				uz,
+				vi,
+				"zh-Hans",
 			);
 			mainGroup = D833F7C10193E82AE63DD049;
 			minimizedProjectReferenceProxies = 1;
@@ -328,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DB9D0E56C243958BCD78BD5 /* Assets.xcassets in Resources */,
+				6F9456C9764FD8278D5919FE /* Localizable.strings in Resources */,
 				C355D09511B10E2234D3ADFB /* PlusJakartaSans-Bold.ttf in Resources */,
 				67141CEB5BC748FF0F11D612 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
 				AAC3BD256EBFEBE3C6C4664A /* PlusJakartaSans-Medium.ttf in Resources */,
@@ -396,6 +466,46 @@
 			targetProxy = 11C4AB8193A3B2DDECEACDE9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BC48E71FF47A774D5AF0F595 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42E85857BB214C401BEFA4F2 /* ar */,
+				B8ED9486C05624D0219F20C3 /* az */,
+				187A2AEF527FDE52C2D87658 /* bn */,
+				EDBBA044F636D550B4C54960 /* de */,
+				661B8E3A32B42C0961337AE1 /* en */,
+				8F516917FBEF11AED042AA1F /* es */,
+				2D339D4C53FEF654BF600923 /* fa */,
+				58A7D67ACEDCB2EB956EC796 /* fr */,
+				EC448CD4C4172E38148A3C60 /* he */,
+				24BCB939CB573917ED0BEF0B /* hi */,
+				E052FCC31C4EBAD0B392507A /* id */,
+				C43CAE83A67E96E70D196AB8 /* it */,
+				8627084176AD300E2135E27B /* ja */,
+				916ECCDD4CE93423544B2899 /* kk */,
+				0A8B57924A9EF4F43C6EF954 /* ko */,
+				A91D1273DF3117CF38BB1A0A /* ky */,
+				82B3132AF41C02C265F6E8EC /* ms */,
+				1A6F21D81ACB578AA6B87887 /* nl */,
+				0350BC3A782B1DC191605BB4 /* pl */,
+				9456B70B9427462E72D9408C /* pt */,
+				EB3E7A386AB61A0DE667973B /* ro */,
+				1E89379024A0F324DA7A0CCE /* ru */,
+				790EB180841BCE63562634EA /* sv */,
+				03B85B79749FD508B3C6F439 /* th */,
+				A6D1285E39B6AF32DED895A3 /* tr */,
+				67DDB28CF0DAF570FC17FCDD /* uk */,
+				1081B1AC6CC0049BA6D788EF /* ur */,
+				6D50B6299879A8BE0D76BE52 /* uz */,
+				FF480008BBFE38FDC1EECCBE /* vi */,
+				C1FB8B01F2F44EB500E739AF /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		14252CAE11809B21EA18C6E8 /* Release */ = {

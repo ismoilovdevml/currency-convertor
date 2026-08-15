@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Umrechner</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Löschen</string>
+    <string name="search_hint">Währung oder Land suchen</string>
+    <string name="convert_from">Umrechnen von</string>
+    <string name="convert_to">Umrechnen in</string>
+    <string name="updated_just_now">Gerade aktualisiert</string>
+    <string name="updated_minutes">Vor %1$d Min aktualisiert</string>
+    <string name="updated_hours">Vor %1$d Std aktualisiert</string>
+    <string name="updated_days">Vor %1$d T aktualisiert</string>
+    <string name="not_updated">Noch nicht aktualisiert</string>
+    <string name="updating">Wird aktualisiert…</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Конвертер</string>
+    <string name="status_online">Онлайн</string>
+    <string name="status_offline">Офлайн</string>
+    <string name="clear">Очистити</string>
+    <string name="search_hint">Пошук валюти або країни</string>
+    <string name="convert_from">Конвертувати з</string>
+    <string name="convert_to">Конвертувати в</string>
+    <string name="updated_just_now">Щойно оновлено</string>
+    <string name="updated_minutes">Оновлено %1$d хв тому</string>
+    <string name="updated_hours">Оновлено %1$d год тому</string>
+    <string name="updated_days">Оновлено %1$d дн тому</string>
+    <string name="not_updated">Ще не оновлено</string>
+    <string name="updating">Оновлення…</string>
+</resources>

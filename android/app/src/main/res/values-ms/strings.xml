@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Penukar</string>
+    <string name="status_online">Dalam talian</string>
+    <string name="status_offline">Luar talian</string>
+    <string name="clear">Kosongkan</string>
+    <string name="search_hint">Cari mata wang atau negara</string>
+    <string name="convert_from">Tukar dari</string>
+    <string name="convert_to">Tukar ke</string>
+    <string name="updated_just_now">Baru dikemas kini</string>
+    <string name="updated_minutes">Dikemas kini %1$d min lalu</string>
+    <string name="updated_hours">Dikemas kini %1$d j lalu</string>
+    <string name="updated_days">Dikemas kini %1$d h lalu</string>
+    <string name="not_updated">Belum dikemas kini</string>
+    <string name="updating">Mengemas kini…</string>
+</resources>

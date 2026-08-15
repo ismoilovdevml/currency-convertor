@@ -1,0 +1,13 @@
+"app_title" = "Convertor";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Șterge";
+"search_hint" = "Caută monedă sau țară";
+"convert_from" = "Convertește din";
+"convert_to" = "Convertește în";
+"updated_just_now" = "Actualizat acum";
+"updated_minutes" = "Actualizat acum %d min";
+"updated_hours" = "Actualizat acum %d h";
+"updated_days" = "Actualizat acum %d z";
+"not_updated" = "Încă neactualizat";
+"updating" = "Se actualizează…";

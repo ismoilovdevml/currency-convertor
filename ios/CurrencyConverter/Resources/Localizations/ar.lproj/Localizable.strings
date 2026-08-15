@@ -1,0 +1,13 @@
+"app_title" = "المحوّل";
+"status_online" = "متصل";
+"status_offline" = "غير متصل";
+"clear" = "مسح";
+"search_hint" = "ابحث عن عملة أو دولة";
+"convert_from" = "التحويل من";
+"convert_to" = "التحويل إلى";
+"updated_just_now" = "تم التحديث الآن";
+"updated_minutes" = "تم التحديث قبل %d د";
+"updated_hours" = "تم التحديث قبل %d س";
+"updated_days" = "تم التحديث قبل %d ي";
+"not_updated" = "لم يُحدَّث بعد";
+"updating" = "جارٍ التحديث…";

@@ -1,0 +1,13 @@
+"app_title" = "Omvandlare";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Rensa";
+"search_hint" = "Sök valuta eller land";
+"convert_from" = "Omvandla från";
+"convert_to" = "Omvandla till";
+"updated_just_now" = "Uppdaterad nyss";
+"updated_minutes" = "Uppdaterad %d min sedan";
+"updated_hours" = "Uppdaterad %d tim sedan";
+"updated_days" = "Uppdaterad %d d sedan";
+"not_updated" = "Inte uppdaterad än";
+"updating" = "Uppdaterar…";

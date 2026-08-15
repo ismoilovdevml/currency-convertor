@@ -1,0 +1,13 @@
+"app_title" = "Конвертер";
+"status_online" = "Онлайн";
+"status_offline" = "Офлайн";
+"clear" = "Очистити";
+"search_hint" = "Пошук валюти або країни";
+"convert_from" = "Конвертувати з";
+"convert_to" = "Конвертувати в";
+"updated_just_now" = "Щойно оновлено";
+"updated_minutes" = "Оновлено %d хв тому";
+"updated_hours" = "Оновлено %d год тому";
+"updated_days" = "Оновлено %d дн тому";
+"not_updated" = "Ще не оновлено";
+"updating" = "Оновлення…";

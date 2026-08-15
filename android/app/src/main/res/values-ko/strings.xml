@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">환율 변환기</string>
+    <string name="status_online">온라인</string>
+    <string name="status_offline">오프라인</string>
+    <string name="clear">지우기</string>
+    <string name="search_hint">통화 또는 국가 검색</string>
+    <string name="convert_from">원본 통화</string>
+    <string name="convert_to">대상 통화</string>
+    <string name="updated_just_now">방금 업데이트됨</string>
+    <string name="updated_minutes">%1$d분 전 업데이트</string>
+    <string name="updated_hours">%1$d시간 전 업데이트</string>
+    <string name="updated_days">%1$d일 전 업데이트</string>
+    <string name="not_updated">아직 업데이트 안 됨</string>
+    <string name="updating">업데이트 중…</string>
+</resources>

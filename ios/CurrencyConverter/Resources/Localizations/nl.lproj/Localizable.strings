@@ -1,0 +1,13 @@
+"app_title" = "Omrekenaar";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Wissen";
+"search_hint" = "Zoek valuta of land";
+"convert_from" = "Omrekenen van";
+"convert_to" = "Omrekenen naar";
+"updated_just_now" = "Zojuist bijgewerkt";
+"updated_minutes" = "%d min geleden bijgewerkt";
+"updated_hours" = "%d u geleden bijgewerkt";
+"updated_days" = "%d d geleden bijgewerkt";
+"not_updated" = "Nog niet bijgewerkt";
+"updating" = "Bijwerken…";

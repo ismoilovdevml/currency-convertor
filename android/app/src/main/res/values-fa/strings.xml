@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">مبدل</string>
+    <string name="status_online">آنلاین</string>
+    <string name="status_offline">آفلاین</string>
+    <string name="clear">پاک کردن</string>
+    <string name="search_hint">جستجوی ارز یا کشور</string>
+    <string name="convert_from">تبدیل از</string>
+    <string name="convert_to">تبدیل به</string>
+    <string name="updated_just_now">هم‌اکنون به‌روزرسانی شد</string>
+    <string name="updated_minutes">به‌روزرسانی %1$d دقیقه پیش</string>
+    <string name="updated_hours">به‌روزرسانی %1$d ساعت پیش</string>
+    <string name="updated_days">به‌روزرسانی %1$d روز پیش</string>
+    <string name="not_updated">هنوز به‌روزرسانی نشده</string>
+    <string name="updating">در حال به‌روزرسانی…</string>
+</resources>

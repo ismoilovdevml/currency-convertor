@@ -1,0 +1,13 @@
+"app_title" = "Convertisseur";
+"status_online" = "En ligne";
+"status_offline" = "Hors ligne";
+"clear" = "Effacer";
+"search_hint" = "Rechercher une devise ou un pays";
+"convert_from" = "Convertir de";
+"convert_to" = "Convertir en";
+"updated_just_now" = "Mis à jour à l’instant";
+"updated_minutes" = "Mis à jour il y a %d min";
+"updated_hours" = "Mis à jour il y a %d h";
+"updated_days" = "Mis à jour il y a %d j";
+"not_updated" = "Pas encore mis à jour";
+"updating" = "Mise à jour…";

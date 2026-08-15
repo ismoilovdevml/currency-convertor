@@ -32,10 +32,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.currencyconverter.app.R
 import com.currencyconverter.app.ui.components.AutoSizeAmountText
 import com.currencyconverter.app.ui.components.ConverterLogo
 import com.currencyconverter.app.ui.components.CurrencySheetOverlay
@@ -77,7 +79,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
             Row(horizontalArrangement = Arrangement.spacedBy(9.dp), verticalAlignment = Alignment.CenterVertically) {
                 ConverterLogo(size = 30.dp, tileColor = colors.accent, glyphColor = colors.accentInk)
                 Text(
-                    text = "Converter",
+                    text = stringResource(R.string.app_title),
                     fontFamily = PlusJakartaSans,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.ExtraBold,
@@ -213,7 +215,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
             contentAlignment = Alignment.Center,
         ) {
             Text(
-                text = "Clear",
+                text = stringResource(R.string.clear),
                 fontFamily = PlusJakartaSans,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,

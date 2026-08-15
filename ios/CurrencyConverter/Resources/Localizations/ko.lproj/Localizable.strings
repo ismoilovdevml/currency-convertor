@@ -1,0 +1,13 @@
+"app_title" = "환율 변환기";
+"status_online" = "온라인";
+"status_offline" = "오프라인";
+"clear" = "지우기";
+"search_hint" = "통화 또는 국가 검색";
+"convert_from" = "원본 통화";
+"convert_to" = "대상 통화";
+"updated_just_now" = "방금 업데이트됨";
+"updated_minutes" = "%d분 전 업데이트";
+"updated_hours" = "%d시간 전 업데이트";
+"updated_days" = "%d일 전 업데이트";
+"not_updated" = "아직 업데이트 안 됨";
+"updating" = "업데이트 중…";

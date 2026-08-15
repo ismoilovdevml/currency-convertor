@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Konvertor</string>
+    <string name="status_online">Onlayn</string>
+    <string name="status_offline">Oflayn</string>
+    <string name="clear">Tozalash</string>
+    <string name="search_hint">Valyuta yoki davlatni qidiring</string>
+    <string name="convert_from">Manba valyuta</string>
+    <string name="convert_to">Maqsad valyuta</string>
+    <string name="updated_just_now">Hozirgina yangilandi</string>
+    <string name="updated_minutes">%1$d daq oldin</string>
+    <string name="updated_hours">%1$d soat oldin</string>
+    <string name="updated_days">%1$d kun oldin</string>
+    <string name="not_updated">Hali yangilanmagan</string>
+    <string name="updating">Yangilanmoqda…</string>
+</resources>

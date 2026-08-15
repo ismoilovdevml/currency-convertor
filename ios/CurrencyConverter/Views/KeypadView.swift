@@ -48,7 +48,7 @@ private struct ClearButton: View {
 
     var body: some View {
         Button(action: action) {
-            Text("Clear")
+            Text(String(localized: "clear"))
                 .font(AppFont.semibold(15))
                 .frame(maxWidth: .infinity)
                 .frame(height: 46)

@@ -1,0 +1,13 @@
+"app_title" = "Umrechner";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Löschen";
+"search_hint" = "Währung oder Land suchen";
+"convert_from" = "Umrechnen von";
+"convert_to" = "Umrechnen in";
+"updated_just_now" = "Gerade aktualisiert";
+"updated_minutes" = "Vor %d Min aktualisiert";
+"updated_hours" = "Vor %d Std aktualisiert";
+"updated_days" = "Vor %d T aktualisiert";
+"not_updated" = "Noch nicht aktualisiert";
+"updating" = "Wird aktualisiert…";

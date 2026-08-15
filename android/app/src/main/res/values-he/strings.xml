@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">ממיר</string>
+    <string name="status_online">מקוון</string>
+    <string name="status_offline">לא מקוון</string>
+    <string name="clear">נקה</string>
+    <string name="search_hint">חפש מטבע או מדינה</string>
+    <string name="convert_from">המרה מ־</string>
+    <string name="convert_to">המרה ל־</string>
+    <string name="updated_just_now">עודכן כעת</string>
+    <string name="updated_minutes">עודכן לפני %1$d ד׳</string>
+    <string name="updated_hours">עודכן לפני %1$d ש׳</string>
+    <string name="updated_days">עודכן לפני %1$d ימים</string>
+    <string name="not_updated">עדיין לא עודכן</string>
+    <string name="updating">מעדכן…</string>
+</resources>

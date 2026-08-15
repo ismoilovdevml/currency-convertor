@@ -1,0 +1,13 @@
+"app_title" = "换算器";
+"status_online" = "在线";
+"status_offline" = "离线";
+"clear" = "清除";
+"search_hint" = "搜索货币或国家";
+"convert_from" = "转换自";
+"convert_to" = "转换为";
+"updated_just_now" = "刚刚更新";
+"updated_minutes" = "%d 分钟前更新";
+"updated_hours" = "%d 小时前更新";
+"updated_days" = "%d 天前更新";
+"not_updated" = "尚未更新";
+"updating" = "正在更新…";

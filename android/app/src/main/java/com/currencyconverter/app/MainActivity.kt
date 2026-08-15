@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         val connectivity = ConnectivityObserver(applicationContext)
 
         setContent {
-            val viewModel: ConverterViewModel = viewModel(factory = ConverterViewModel.Factory(repository, preferences, connectivity))
+            val viewModel: ConverterViewModel = viewModel(factory = ConverterViewModel.Factory(repository, preferences, connectivity, applicationContext))
             val state by viewModel.uiState.collectAsState()
 
             LaunchedEffect(state.darkTheme) {

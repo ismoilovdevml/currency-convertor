@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">換算</string>
+    <string name="status_online">オンライン</string>
+    <string name="status_offline">オフライン</string>
+    <string name="clear">クリア</string>
+    <string name="search_hint">通貨または国を検索</string>
+    <string name="convert_from">変換元</string>
+    <string name="convert_to">変換先</string>
+    <string name="updated_just_now">たった今更新</string>
+    <string name="updated_minutes">%1$d分前に更新</string>
+    <string name="updated_hours">%1$d時間前に更新</string>
+    <string name="updated_days">%1$d日前に更新</string>
+    <string name="not_updated">未更新</string>
+    <string name="updating">更新中…</string>
+</resources>

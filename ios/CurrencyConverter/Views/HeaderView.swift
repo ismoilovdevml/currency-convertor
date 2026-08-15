@@ -8,7 +8,7 @@ struct HeaderView: View {
         HStack(spacing: 12) {
             HStack(spacing: 9) {
                 AppLogoView(size: 30, background: theme.accent, foreground: theme.accentInk)
-                Text("Converter")
+                Text(String(localized: "app_title"))
                     .font(AppFont.extraBold(20))
                     .tracking(-0.5)
                     .foregroundStyle(theme.fg)

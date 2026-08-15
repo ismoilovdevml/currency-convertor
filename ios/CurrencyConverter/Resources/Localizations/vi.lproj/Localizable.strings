@@ -1,0 +1,13 @@
+"app_title" = "Bộ chuyển đổi";
+"status_online" = "Trực tuyến";
+"status_offline" = "Ngoại tuyến";
+"clear" = "Xóa";
+"search_hint" = "Tìm tiền tệ hoặc quốc gia";
+"convert_from" = "Chuyển từ";
+"convert_to" = "Chuyển sang";
+"updated_just_now" = "Vừa cập nhật";
+"updated_minutes" = "Cập nhật %d phút trước";
+"updated_hours" = "Cập nhật %d giờ trước";
+"updated_days" = "Cập nhật %d ngày trước";
+"not_updated" = "Chưa cập nhật";
+"updating" = "Đang cập nhật…";

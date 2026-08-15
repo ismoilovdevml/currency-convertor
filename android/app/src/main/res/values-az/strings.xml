@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Çevirici</string>
+    <string name="status_online">Onlayn</string>
+    <string name="status_offline">Oflayn</string>
+    <string name="clear">Təmizlə</string>
+    <string name="search_hint">Valyuta və ya ölkə axtar</string>
+    <string name="convert_from">Bundan çevir</string>
+    <string name="convert_to">Buna çevir</string>
+    <string name="updated_just_now">İndicə yeniləndi</string>
+    <string name="updated_minutes">%1$d dəq əvvəl yeniləndi</string>
+    <string name="updated_hours">%1$d saat əvvəl yeniləndi</string>
+    <string name="updated_days">%1$d gün əvvəl yeniləndi</string>
+    <string name="not_updated">Hələ yenilənməyib</string>
+    <string name="updating">Yenilənir…</string>
+</resources>

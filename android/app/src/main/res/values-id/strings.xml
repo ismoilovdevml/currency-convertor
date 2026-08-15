@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Konverter</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Hapus</string>
+    <string name="search_hint">Cari mata uang atau negara</string>
+    <string name="convert_from">Konversi dari</string>
+    <string name="convert_to">Konversi ke</string>
+    <string name="updated_just_now">Baru saja diperbarui</string>
+    <string name="updated_minutes">Diperbarui %1$d mnt lalu</string>
+    <string name="updated_hours">Diperbarui %1$d jam lalu</string>
+    <string name="updated_days">Diperbarui %1$d hr lalu</string>
+    <string name="not_updated">Belum diperbarui</string>
+    <string name="updating">Memperbarui…</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Айландыргыч</string>
+    <string name="status_online">Онлайн</string>
+    <string name="status_offline">Оффлайн</string>
+    <string name="clear">Тазалоо</string>
+    <string name="search_hint">Валюта же өлкө издөө</string>
+    <string name="convert_from">Кайдан айландыруу</string>
+    <string name="convert_to">Кайда айландыруу</string>
+    <string name="updated_just_now">Жаңы эле жаңырды</string>
+    <string name="updated_minutes">%1$d мүн мурун жаңырды</string>
+    <string name="updated_hours">%1$d саат мурун жаңырды</string>
+    <string name="updated_days">%1$d күн мурун жаңырды</string>
+    <string name="not_updated">Азырынча жаңырган жок</string>
+    <string name="updating">Жаңырууда…</string>
+</resources>

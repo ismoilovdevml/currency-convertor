@@ -1,0 +1,15 @@
+/* Auto-generated from shared/i18n/ui-strings.json. Do not edit by hand — edit the source JSON and regenerate. */
+
+"app_title" = "Converter";
+"status_online" = "Online";
+"status_offline" = "Offline";
+"clear" = "Clear";
+"search_hint" = "Search currency or country";
+"convert_from" = "Convert from";
+"convert_to" = "Convert to";
+"updated_just_now" = "Updated just now";
+"updated_minutes" = "Updated %dm ago";
+"updated_hours" = "Updated %dh ago";
+"updated_days" = "Updated %dd ago";
+"not_updated" = "Not updated yet";
+"updating" = "Updating…";

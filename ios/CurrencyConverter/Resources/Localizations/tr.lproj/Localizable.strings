@@ -1,0 +1,13 @@
+"app_title" = "Dönüştürücü";
+"status_online" = "Çevrimiçi";
+"status_offline" = "Çevrimdışı";
+"clear" = "Temizle";
+"search_hint" = "Para birimi veya ülke ara";
+"convert_from" = "Kaynak para birimi";
+"convert_to" = "Hedef para birimi";
+"updated_just_now" = "Az önce güncellendi";
+"updated_minutes" = "%d dk önce güncellendi";
+"updated_hours" = "%d sa önce güncellendi";
+"updated_days" = "%d g önce güncellendi";
+"not_updated" = "Henüz güncellenmedi";
+"updating" = "Güncelleniyor…";

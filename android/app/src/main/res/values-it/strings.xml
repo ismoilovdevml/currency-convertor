@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Convertitore</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Cancella</string>
+    <string name="search_hint">Cerca valuta o paese</string>
+    <string name="convert_from">Converti da</string>
+    <string name="convert_to">Converti in</string>
+    <string name="updated_just_now">Aggiornato ora</string>
+    <string name="updated_minutes">Aggiornato %1$d min fa</string>
+    <string name="updated_hours">Aggiornato %1$d h fa</string>
+    <string name="updated_days">Aggiornato %1$d g fa</string>
+    <string name="not_updated">Non ancora aggiornato</string>
+    <string name="updating">Aggiornamento…</string>
+</resources>

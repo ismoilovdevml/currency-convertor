@@ -1,8 +1,10 @@
 package com.currencyconverter.app.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.currencyconverter.app.R
 import com.currencyconverter.app.data.ConnectivityObserver
 import com.currencyconverter.app.data.CurrencyInfo
 import com.currencyconverter.app.data.PersistedSettings
@@ -16,6 +18,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.util.Currency
+import java.util.Locale
 
 enum class EntrySide { FROM, TO }
 enum class SheetTarget { FROM, TO }
@@ -71,6 +75,7 @@ class ConverterViewModel(
     private val repository: RatesRepository,
     private val preferences: PreferencesRepository,
     private val connectivity: ConnectivityObserver,
+    private val appContext: Context,
 ) : ViewModel() {
 
     private val rawState = MutableStateFlow(RawState())
@@ -79,6 +84,20 @@ class ConverterViewModel(
 
     private val currencyByCode: Map<String, CurrencyInfo> by lazy {
         repository.currenciesData.currencies.associateBy { it.code }
+    }
+
+    /**
+     * Currency display name in the device's language, via the OS CLDR data
+     * (java.util.Currency). Falls back to the bundled English name from
+     * currencies.json for codes the JDK's ISO-4217 table doesn't recognise
+     * (e.g. XCG, XCD, XDR, XAF, XOF, XPF, ANG, and other regional/legacy codes).
+     */
+    private fun localizedCurrencyName(code: String, fallbackName: String): String {
+        return try {
+            Currency.getInstance(code).getDisplayName(Locale.getDefault())
+        } catch (e: Exception) {
+            fallbackName
+        }
     }
 
     val uiState: StateFlow<ConverterDisplay> =
@@ -136,17 +155,25 @@ class ConverterViewModel(
         val baseCode = if (sheetTarget == SheetTarget.FROM) raw.toCode else raw.fromCode
 
         val sheetList = if (sheetTarget != null) {
-            val filtered = repository.currenciesData.currencies.filter { c ->
-                query.isEmpty() || c.code.lowercase().contains(query) || c.name.lowercase().contains(query)
+            // Match on code, the OS-localized name, and the bundled English name (currencies.json)
+            // so e.g. a Russian-locale user can still find "Dollar" in Latin script.
+            val named = repository.currenciesData.currencies.map { c ->
+                c to localizedCurrencyName(c.code, c.name)
+            }
+            val filtered = named.filter { (c, localizedName) ->
+                query.isEmpty() ||
+                    c.code.lowercase().contains(query) ||
+                    localizedName.lowercase().contains(query) ||
+                    c.name.lowercase().contains(query)
             }
             val favIndex = raw.favorites.withIndex().associate { (i, code) -> code to i }
-            val (favs, rest) = filtered.partition { favIndex.containsKey(it.code) }
-            val orderedFavs = favs.sortedBy { favIndex.getValue(it.code) }
-            (orderedFavs + rest).map { c ->
+            val (favs, rest) = filtered.partition { (c, _) -> favIndex.containsKey(c.code) }
+            val orderedFavs = favs.sortedBy { (c, _) -> favIndex.getValue(c.code) }
+            (orderedFavs + rest).map { (c, localizedName) ->
                 val rate = rateOf(rates, c.code)
                 SheetRow(
                     code = c.code,
-                    name = c.name,
+                    name = localizedName,
                     flagAsset = repository.flagAssetPath(c.cc),
                     selected = c.code == selectedCode,
                     rateText = "${ConverterEngine.fmt(if (rate == 0.0) 0.0 else baseRate / rate)} $baseCode",
@@ -157,41 +184,44 @@ class ConverterViewModel(
 
         return ConverterDisplay(
             fromCode = raw.fromCode,
-            fromName = f?.name.orEmpty(),
+            fromName = f?.let { localizedCurrencyName(it.code, it.name) }.orEmpty(),
             fromFlagAsset = repository.flagAssetPath(f?.cc),
             fromValue = fromStr,
             activeFrom = raw.side == EntrySide.FROM,
             toCode = raw.toCode,
-            toName = t?.name.orEmpty(),
+            toName = t?.let { localizedCurrencyName(it.code, it.name) }.orEmpty(),
             toFlagAsset = repository.flagAssetPath(t?.cc),
             toValue = toStr,
             activeTo = raw.side == EntrySide.TO,
             rateLine = ConverterEngine.rateLine(raw.fromCode, raw.toCode, fRate, tRate),
-            updatedLine = if (raw.isRefreshing) "Updating…" else updatedLine(snapshot),
-            modeLabel = if (online) "Online" else "Offline",
+            updatedLine = if (raw.isRefreshing) appContext.getString(R.string.updating) else updatedLine(snapshot),
+            modeLabel = if (online) appContext.getString(R.string.status_online) else appContext.getString(R.string.status_offline),
             online = online,
             darkTheme = raw.darkTheme,
             sheetOpen = sheetTarget != null,
-            sheetTitle = if (sheetTarget == SheetTarget.FROM) "Convert from" else "Convert to",
+            sheetTitle = if (sheetTarget == SheetTarget.FROM) {
+                appContext.getString(R.string.convert_from)
+            } else {
+                appContext.getString(R.string.convert_to)
+            },
             query = raw.query,
             sheetList = sheetList,
             ratesReady = ratesReady,
         )
     }
 
-    /** Human "Updated Xm/Xh/Xd ago" from the snapshot's real fetch time. */
+    /** Human "Updated Xm/Xh/Xd ago" from the snapshot's real fetch time, localized. */
     private fun updatedLine(snapshot: RatesSnapshot?): String {
         if (snapshot == null) return ""
-        if (snapshot.fetchedAtMillis <= 0L) return "Not updated yet"
+        if (snapshot.fetchedAtMillis <= 0L) return appContext.getString(R.string.not_updated)
         val diff = System.currentTimeMillis() - snapshot.fetchedAtMillis
         val sec = diff / 1000
-        val rel = when {
-            sec < 60 -> "just now"
-            sec < 3600 -> "${sec / 60}m ago"
-            sec < 86_400 -> "${sec / 3600}h ago"
-            else -> "${sec / 86_400}d ago"
+        return when {
+            sec < 60 -> appContext.getString(R.string.updated_just_now)
+            sec < 3600 -> appContext.getString(R.string.updated_minutes, (sec / 60).toInt())
+            sec < 86_400 -> appContext.getString(R.string.updated_hours, (sec / 3600).toInt())
+            else -> appContext.getString(R.string.updated_days, (sec / 86_400).toInt())
         }
-        return "Updated $rel"
     }
 
     private fun persist(raw: RawState) {
@@ -284,10 +314,11 @@ class ConverterViewModel(
         private val repository: RatesRepository,
         private val preferences: PreferencesRepository,
         private val connectivity: ConnectivityObserver,
+        private val appContext: Context,
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ConverterViewModel(repository, preferences, connectivity) as T
+            return ConverterViewModel(repository, preferences, connectivity, appContext) as T
         }
     }
 }

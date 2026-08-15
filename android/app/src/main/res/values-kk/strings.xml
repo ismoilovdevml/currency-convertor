@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Түрлендіргіш</string>
+    <string name="status_online">Онлайн</string>
+    <string name="status_offline">Офлайн</string>
+    <string name="clear">Тазалау</string>
+    <string name="search_hint">Валюта не елді іздеу</string>
+    <string name="convert_from">Неден түрлендіру</string>
+    <string name="convert_to">Неге түрлендіру</string>
+    <string name="updated_just_now">Жаңа ғана жаңартылды</string>
+    <string name="updated_minutes">%1$d мин бұрын жаңартылды</string>
+    <string name="updated_hours">%1$d сағ бұрын жаңартылды</string>
+    <string name="updated_days">%1$d күн бұрын жаңартылды</string>
+    <string name="not_updated">Әлі жаңартылмаған</string>
+    <string name="updating">Жаңартылуда…</string>
+</resources>

@@ -1,0 +1,13 @@
+"app_title" = "換算";
+"status_online" = "オンライン";
+"status_offline" = "オフライン";
+"clear" = "クリア";
+"search_hint" = "通貨または国を検索";
+"convert_from" = "変換元";
+"convert_to" = "変換先";
+"updated_just_now" = "たった今更新";
+"updated_minutes" = "%d分前に更新";
+"updated_hours" = "%d時間前に更新";
+"updated_days" = "%d日前に更新";
+"not_updated" = "未更新";
+"updating" = "更新中…";

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Omrekenaar</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Wissen</string>
+    <string name="search_hint">Zoek valuta of land</string>
+    <string name="convert_from">Omrekenen van</string>
+    <string name="convert_to">Omrekenen naar</string>
+    <string name="updated_just_now">Zojuist bijgewerkt</string>
+    <string name="updated_minutes">%1$d min geleden bijgewerkt</string>
+    <string name="updated_hours">%1$d u geleden bijgewerkt</string>
+    <string name="updated_days">%1$d d geleden bijgewerkt</string>
+    <string name="not_updated">Nog niet bijgewerkt</string>
+    <string name="updating">Bijwerken…</string>
+</resources>

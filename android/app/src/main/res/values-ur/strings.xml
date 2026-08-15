@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">کنورٹر</string>
+    <string name="status_online">آن لائن</string>
+    <string name="status_offline">آف لائن</string>
+    <string name="clear">صاف کریں</string>
+    <string name="search_hint">کرنسی یا ملک تلاش کریں</string>
+    <string name="convert_from">سے تبدیل کریں</string>
+    <string name="convert_to">میں تبدیل کریں</string>
+    <string name="updated_just_now">ابھی اپ ڈیٹ ہوا</string>
+    <string name="updated_minutes">%1$d منٹ پہلے اپ ڈیٹ</string>
+    <string name="updated_hours">%1$d گھنٹے پہلے اپ ڈیٹ</string>
+    <string name="updated_days">%1$d دن پہلے اپ ڈیٹ</string>
+    <string name="not_updated">ابھی تک اپ ڈیٹ نہیں</string>
+    <string name="updating">اپ ڈیٹ ہو رہا ہے…</string>
+</resources>

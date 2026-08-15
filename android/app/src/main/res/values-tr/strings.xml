@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Dönüştürücü</string>
+    <string name="status_online">Çevrimiçi</string>
+    <string name="status_offline">Çevrimdışı</string>
+    <string name="clear">Temizle</string>
+    <string name="search_hint">Para birimi veya ülke ara</string>
+    <string name="convert_from">Kaynak para birimi</string>
+    <string name="convert_to">Hedef para birimi</string>
+    <string name="updated_just_now">Az önce güncellendi</string>
+    <string name="updated_minutes">%1$d dk önce güncellendi</string>
+    <string name="updated_hours">%1$d sa önce güncellendi</string>
+    <string name="updated_days">%1$d g önce güncellendi</string>
+    <string name="not_updated">Henüz güncellenmedi</string>
+    <string name="updating">Güncelleniyor…</string>
+</resources>

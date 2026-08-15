@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">কনভার্টার</string>
+    <string name="status_online">অনলাইন</string>
+    <string name="status_offline">অফলাইন</string>
+    <string name="clear">মুছুন</string>
+    <string name="search_hint">মুদ্রা বা দেশ খুঁজুন</string>
+    <string name="convert_from">থেকে রূপান্তর</string>
+    <string name="convert_to">তে রূপান্তর</string>
+    <string name="updated_just_now">এইমাত্র আপডেট হয়েছে</string>
+    <string name="updated_minutes">%1$d মি আগে আপডেট</string>
+    <string name="updated_hours">%1$d ঘ আগে আপডেট</string>
+    <string name="updated_days">%1$d দি আগে আপডেট</string>
+    <string name="not_updated">এখনও আপডেট হয়নি</string>
+    <string name="updating">আপডেট হচ্ছে…</string>
+</resources>

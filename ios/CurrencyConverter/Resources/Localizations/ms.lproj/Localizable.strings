@@ -1,0 +1,13 @@
+"app_title" = "Penukar";
+"status_online" = "Dalam talian";
+"status_offline" = "Luar talian";
+"clear" = "Kosongkan";
+"search_hint" = "Cari mata wang atau negara";
+"convert_from" = "Tukar dari";
+"convert_to" = "Tukar ke";
+"updated_just_now" = "Baru dikemas kini";
+"updated_minutes" = "Dikemas kini %d min lalu";
+"updated_hours" = "Dikemas kini %d j lalu";
+"updated_days" = "Dikemas kini %d h lalu";
+"not_updated" = "Belum dikemas kini";
+"updating" = "Mengemas kini…";

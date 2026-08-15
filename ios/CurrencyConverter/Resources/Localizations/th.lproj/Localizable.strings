@@ -1,0 +1,13 @@
+"app_title" = "ตัวแปลง";
+"status_online" = "ออนไลน์";
+"status_offline" = "ออฟไลน์";
+"clear" = "ล้าง";
+"search_hint" = "ค้นหาสกุลเงินหรือประเทศ";
+"convert_from" = "แปลงจาก";
+"convert_to" = "แปลงเป็น";
+"updated_just_now" = "อัปเดตเมื่อสักครู่";
+"updated_minutes" = "อัปเดต %d นาทีที่แล้ว";
+"updated_hours" = "อัปเดต %d ชม.ที่แล้ว";
+"updated_days" = "อัปเดต %d วันที่แล้ว";
+"not_updated" = "ยังไม่ได้อัปเดต";
+"updating" = "กำลังอัปเดต…";

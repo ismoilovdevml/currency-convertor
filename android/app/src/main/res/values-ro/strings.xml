@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Convertor</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Șterge</string>
+    <string name="search_hint">Caută monedă sau țară</string>
+    <string name="convert_from">Convertește din</string>
+    <string name="convert_to">Convertește în</string>
+    <string name="updated_just_now">Actualizat acum</string>
+    <string name="updated_minutes">Actualizat acum %1$d min</string>
+    <string name="updated_hours">Actualizat acum %1$d h</string>
+    <string name="updated_days">Actualizat acum %1$d z</string>
+    <string name="not_updated">Încă neactualizat</string>
+    <string name="updating">Se actualizează…</string>
+</resources>

@@ -1,0 +1,13 @@
+"app_title" = "কনভার্টার";
+"status_online" = "অনলাইন";
+"status_offline" = "অফলাইন";
+"clear" = "মুছুন";
+"search_hint" = "মুদ্রা বা দেশ খুঁজুন";
+"convert_from" = "থেকে রূপান্তর";
+"convert_to" = "তে রূপান্তর";
+"updated_just_now" = "এইমাত্র আপডেট হয়েছে";
+"updated_minutes" = "%d মি আগে আপডেট";
+"updated_hours" = "%d ঘ আগে আপডেট";
+"updated_days" = "%d দি আগে আপডেট";
+"not_updated" = "এখনও আপডেট হয়নি";
+"updating" = "আপডেট হচ্ছে…";

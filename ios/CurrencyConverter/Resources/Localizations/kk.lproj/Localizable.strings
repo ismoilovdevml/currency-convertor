@@ -1,0 +1,13 @@
+"app_title" = "Түрлендіргіш";
+"status_online" = "Онлайн";
+"status_offline" = "Офлайн";
+"clear" = "Тазалау";
+"search_hint" = "Валюта не елді іздеу";
+"convert_from" = "Неден түрлендіру";
+"convert_to" = "Неге түрлендіру";
+"updated_just_now" = "Жаңа ғана жаңартылды";
+"updated_minutes" = "%d мин бұрын жаңартылды";
+"updated_hours" = "%d сағ бұрын жаңартылды";
+"updated_days" = "%d күн бұрын жаңартылды";
+"not_updated" = "Әлі жаңартылмаған";
+"updating" = "Жаңартылуда…";

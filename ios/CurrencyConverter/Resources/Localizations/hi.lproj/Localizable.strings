@@ -1,0 +1,13 @@
+"app_title" = "कन्वर्टर";
+"status_online" = "ऑनलाइन";
+"status_offline" = "ऑफ़लाइन";
+"clear" = "साफ़ करें";
+"search_hint" = "मुद्रा या देश खोजें";
+"convert_from" = "किससे बदलें";
+"convert_to" = "किसमें बदलें";
+"updated_just_now" = "अभी अपडेट किया गया";
+"updated_minutes" = "%d मि पहले अपडेट";
+"updated_hours" = "%d घं पहले अपडेट";
+"updated_days" = "%d दि पहले अपडेट";
+"not_updated" = "अभी तक अपडेट नहीं";
+"updating" = "अपडेट हो रहा है…";

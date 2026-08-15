@@ -1,0 +1,13 @@
+"app_title" = "Айландыргыч";
+"status_online" = "Онлайн";
+"status_offline" = "Оффлайн";
+"clear" = "Тазалоо";
+"search_hint" = "Валюта же өлкө издөө";
+"convert_from" = "Кайдан айландыруу";
+"convert_to" = "Кайда айландыруу";
+"updated_just_now" = "Жаңы эле жаңырды";
+"updated_minutes" = "%d мүн мурун жаңырды";
+"updated_hours" = "%d саат мурун жаңырды";
+"updated_days" = "%d күн мурун жаңырды";
+"not_updated" = "Азырынча жаңырган жок";
+"updating" = "Жаңырууда…";

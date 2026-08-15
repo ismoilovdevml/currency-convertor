@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">المحوّل</string>
+    <string name="status_online">متصل</string>
+    <string name="status_offline">غير متصل</string>
+    <string name="clear">مسح</string>
+    <string name="search_hint">ابحث عن عملة أو دولة</string>
+    <string name="convert_from">التحويل من</string>
+    <string name="convert_to">التحويل إلى</string>
+    <string name="updated_just_now">تم التحديث الآن</string>
+    <string name="updated_minutes">تم التحديث قبل %1$d د</string>
+    <string name="updated_hours">تم التحديث قبل %1$d س</string>
+    <string name="updated_days">تم التحديث قبل %1$d ي</string>
+    <string name="not_updated">لم يُحدَّث بعد</string>
+    <string name="updating">جارٍ التحديث…</string>
+</resources>

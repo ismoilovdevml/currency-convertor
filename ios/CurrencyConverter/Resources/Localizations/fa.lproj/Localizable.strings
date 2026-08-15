@@ -1,0 +1,13 @@
+"app_title" = "مبدل";
+"status_online" = "آنلاین";
+"status_offline" = "آفلاین";
+"clear" = "پاک کردن";
+"search_hint" = "جستجوی ارز یا کشور";
+"convert_from" = "تبدیل از";
+"convert_to" = "تبدیل به";
+"updated_just_now" = "هم‌اکنون به‌روزرسانی شد";
+"updated_minutes" = "به‌روزرسانی %d دقیقه پیش";
+"updated_hours" = "به‌روزرسانی %d ساعت پیش";
+"updated_days" = "به‌روزرسانی %d روز پیش";
+"not_updated" = "هنوز به‌روزرسانی نشده";
+"updating" = "در حال به‌روزرسانی…";

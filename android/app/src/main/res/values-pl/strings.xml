@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Przelicznik</string>
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="clear">Wyczyść</string>
+    <string name="search_hint">Szukaj waluty lub kraju</string>
+    <string name="convert_from">Przelicz z</string>
+    <string name="convert_to">Przelicz na</string>
+    <string name="updated_just_now">Zaktualizowano teraz</string>
+    <string name="updated_minutes">Zaktualizowano %1$d min temu</string>
+    <string name="updated_hours">Zaktualizowano %1$d godz. temu</string>
+    <string name="updated_days">Zaktualizowano %1$d dni temu</string>
+    <string name="not_updated">Jeszcze nie zaktualizowano</string>
+    <string name="updating">Aktualizowanie…</string>
+</resources>

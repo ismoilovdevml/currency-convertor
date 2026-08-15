@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Conversor</string>
+    <string name="status_online">En línea</string>
+    <string name="status_offline">Sin conexión</string>
+    <string name="clear">Borrar</string>
+    <string name="search_hint">Buscar moneda o país</string>
+    <string name="convert_from">Convertir de</string>
+    <string name="convert_to">Convertir a</string>
+    <string name="updated_just_now">Actualizado ahora</string>
+    <string name="updated_minutes">Actualizado hace %1$d min</string>
+    <string name="updated_hours">Actualizado hace %1$d h</string>
+    <string name="updated_days">Actualizado hace %1$d d</string>
+    <string name="not_updated">Aún sin actualizar</string>
+    <string name="updating">Actualizando…</string>
+</resources>

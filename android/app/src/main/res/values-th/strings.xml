@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">ตัวแปลง</string>
+    <string name="status_online">ออนไลน์</string>
+    <string name="status_offline">ออฟไลน์</string>
+    <string name="clear">ล้าง</string>
+    <string name="search_hint">ค้นหาสกุลเงินหรือประเทศ</string>
+    <string name="convert_from">แปลงจาก</string>
+    <string name="convert_to">แปลงเป็น</string>
+    <string name="updated_just_now">อัปเดตเมื่อสักครู่</string>
+    <string name="updated_minutes">อัปเดต %1$d นาทีที่แล้ว</string>
+    <string name="updated_hours">อัปเดต %1$d ชม.ที่แล้ว</string>
+    <string name="updated_days">อัปเดต %1$d วันที่แล้ว</string>
+    <string name="not_updated">ยังไม่ได้อัปเดต</string>
+    <string name="updating">กำลังอัปเดต…</string>
+</resources>
