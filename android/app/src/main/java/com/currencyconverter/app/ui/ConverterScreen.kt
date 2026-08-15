@@ -71,23 +71,26 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
                 )
             }
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                // Connectivity STATUS (not a toggle): follows the real network state automatically.
                 Row(
                     modifier = Modifier
                         .height(34.dp)
                         .clip(RoundedCornerShape(999.dp))
-                        .background(colors.accentSoft)
-                        .clickable { viewModel.toggleOfflineMode() }
+                        .background(if (state.online) colors.accentSoft else colors.key)
                         .padding(horizontal = 13.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(7.dp),
                 ) {
-                    Box(modifier = Modifier.size(6.dp).clip(CircleShape).background(colors.accent))
+                    Box(
+                        modifier = Modifier.size(6.dp).clip(CircleShape)
+                            .background(if (state.online) colors.accent else colors.muted),
+                    )
                     Text(
                         text = state.modeLabel,
                         fontFamily = PlusJakartaSans,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.ExtraBold,
-                        color = colors.accentText,
+                        color = if (state.online) colors.accentText else colors.muted,
                     )
                 }
                 Box(
@@ -180,14 +183,13 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
             )
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(6.dp))
 
         // ---- Clear row (product addition beyond the design spec) ----
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(44.dp)
-                .padding(bottom = 8.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .background(colors.key)
                 .clickable { viewModel.clearEntry() },
@@ -202,8 +204,10 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
             )
         }
 
-        // ---- Keypad ----
-        Keypad(onPress = { viewModel.press(it) })
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // ---- Keypad: weight(1f) so it fills remaining space and never clips on any device ----
+        Keypad(onPress = { viewModel.press(it) }, modifier = Modifier.weight(1f))
     }
 
     CurrencySheetOverlay(

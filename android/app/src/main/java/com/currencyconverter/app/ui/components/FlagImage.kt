@@ -37,11 +37,16 @@ private val flagCache = ConcurrentHashMap<String, ImageBitmap?>()
 private suspend fun decodeFlag(assets: AssetManager, path: String): ImageBitmap? {
     flagCache[path]?.let { return it }
     return withContext(Dispatchers.IO) {
-        runCatching {
+        val bitmap = runCatching {
             assets.open(path).use { stream ->
                 BitmapFactory.decodeStream(stream)?.asImageBitmap()
             }
-        }.getOrNull().also { flagCache[path] = it }
+        }.getOrNull()
+        // IMPORTANT: ConcurrentHashMap forbids null values — caching a failed decode (missing
+        // asset, e.g. a currency whose flag PNG isn't bundled) would throw NPE and crash the
+        // list. Cache only successful decodes; a null just falls back to the neutral "?" circle.
+        if (bitmap != null) flagCache[path] = bitmap
+        bitmap
     }
 }
 

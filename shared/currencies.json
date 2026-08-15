@@ -39,7 +39,7 @@
     {
       "code": "ANG",
       "name": "Dutch Guilder",
-      "cc": null
+      "cc": "ang"
     },
     {
       "code": "AOA",
@@ -794,32 +794,32 @@
     {
       "code": "XAF",
       "name": "Central African CFA Franc BEAC",
-      "cc": null
+      "cc": "xaf"
     },
     {
       "code": "XCD",
       "name": "East Caribbean Dollar",
-      "cc": null
+      "cc": "xcd"
     },
     {
       "code": "XCG",
-      "name": "Xchange",
-      "cc": "xc"
+      "name": "Caribbean Guilder",
+      "cc": "xcg"
     },
     {
       "code": "XDR",
       "name": "IMF Special Drawing Rights",
-      "cc": null
+      "cc": "xdr"
     },
     {
       "code": "XOF",
       "name": "CFA Franc",
-      "cc": null
+      "cc": "xof"
     },
     {
       "code": "XPF",
       "name": "CFP Franc",
-      "cc": null
+      "cc": "xpf"
     },
     {
       "code": "YER",

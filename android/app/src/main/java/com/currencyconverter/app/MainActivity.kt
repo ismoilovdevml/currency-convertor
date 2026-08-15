@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.currencyconverter.app.data.ConnectivityObserver
 import com.currencyconverter.app.data.PreferencesRepository
 import com.currencyconverter.app.data.RatesRepository
 import com.currencyconverter.app.ui.ConverterScreen
@@ -29,9 +30,10 @@ class MainActivity : ComponentActivity() {
 
         val repository = RatesRepository(applicationContext)
         val preferences = PreferencesRepository(applicationContext)
+        val connectivity = ConnectivityObserver(applicationContext)
 
         setContent {
-            val viewModel: ConverterViewModel = viewModel(factory = ConverterViewModel.Factory(repository, preferences))
+            val viewModel: ConverterViewModel = viewModel(factory = ConverterViewModel.Factory(repository, preferences, connectivity))
             val state by viewModel.uiState.collectAsState()
 
             LaunchedEffect(state.darkTheme) {

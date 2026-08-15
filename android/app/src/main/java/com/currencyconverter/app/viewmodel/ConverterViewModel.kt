@@ -3,12 +3,12 @@ package com.currencyconverter.app.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.currencyconverter.app.data.ConnectivityObserver
 import com.currencyconverter.app.data.CurrencyInfo
 import com.currencyconverter.app.data.PersistedSettings
 import com.currencyconverter.app.data.PreferencesRepository
 import com.currencyconverter.app.data.RatesRepository
 import com.currencyconverter.app.data.RatesSnapshot
-import com.currencyconverter.app.data.RatesSource
 import com.currencyconverter.app.engine.ConverterEngine
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -26,7 +26,6 @@ private data class RawState(
     val fromCode: String = "USD",
     val toCode: String = "UZS",
     val darkTheme: Boolean = false,
-    val offlineMode: Boolean = true,
     val sheetFor: SheetTarget? = null,
     val query: String = "",
     val isRefreshing: Boolean = false,
@@ -56,9 +55,10 @@ data class ConverterDisplay(
     val toValue: String = "0",
     val activeTo: Boolean = false,
     val rateLine: String = "",
-    val updatedLine: String = "Offline",
+    val updatedLine: String = "",
     val modeLabel: String = "Offline",
-    val offlineMode: Boolean = true,
+    /** Real network state — the app follows this automatically; there is no manual toggle. */
+    val online: Boolean = false,
     val darkTheme: Boolean = false,
     val sheetOpen: Boolean = false,
     val sheetTitle: String = "Convert from",
@@ -70,18 +70,21 @@ data class ConverterDisplay(
 class ConverterViewModel(
     private val repository: RatesRepository,
     private val preferences: PreferencesRepository,
+    private val connectivity: ConnectivityObserver,
 ) : ViewModel() {
 
     private val rawState = MutableStateFlow(RawState())
     private val ratesState = MutableStateFlow<RatesSnapshot?>(null)
+    private val onlineState = MutableStateFlow(connectivity.isOnlineNow())
 
     private val currencyByCode: Map<String, CurrencyInfo> by lazy {
         repository.currenciesData.currencies.associateBy { it.code }
     }
 
     val uiState: StateFlow<ConverterDisplay> =
-        combine(rawState, ratesState) { raw, rates -> buildDisplay(raw, rates) }
-            .stateIn(viewModelScope, SharingStarted.Eagerly, ConverterDisplay())
+        combine(rawState, ratesState, onlineState) { raw, rates, online ->
+            buildDisplay(raw, rates, online)
+        }.stateIn(viewModelScope, SharingStarted.Eagerly, ConverterDisplay())
 
     init {
         viewModelScope.launch {
@@ -95,14 +98,21 @@ class ConverterViewModel(
             )
         }
         viewModelScope.launch {
-            val initial = repository.loadInitialRates()
-            ratesState.value = initial
+            // Offline-first: seed/cache immediately, never touches the network.
+            ratesState.value = repository.loadInitialRates()
+        }
+        viewModelScope.launch {
+            // Follow real connectivity; refresh rates automatically whenever we become online.
+            connectivity.isOnline.collect { online ->
+                onlineState.value = online
+                if (online) refreshFromRemote()
+            }
         }
     }
 
     private fun rateOf(rates: Map<String, Double>, code: String): Double = rates[code] ?: 1.0
 
-    private fun buildDisplay(raw: RawState, snapshot: RatesSnapshot?): ConverterDisplay {
+    private fun buildDisplay(raw: RawState, snapshot: RatesSnapshot?, online: Boolean): ConverterDisplay {
         val rates = snapshot?.rates ?: emptyMap()
         val ratesReady = snapshot != null
         val f = currencyByCode[raw.fromCode]
@@ -129,7 +139,6 @@ class ConverterViewModel(
             val filtered = repository.currenciesData.currencies.filter { c ->
                 query.isEmpty() || c.code.lowercase().contains(query) || c.name.lowercase().contains(query)
             }
-            // Favourites first (in starred order), then the rest in source order — mirrors the design spec.
             val favIndex = raw.favorites.withIndex().associate { (i, code) -> code to i }
             val (favs, rest) = filtered.partition { favIndex.containsKey(it.code) }
             val orderedFavs = favs.sortedBy { favIndex.getValue(it.code) }
@@ -158,9 +167,9 @@ class ConverterViewModel(
             toValue = toStr,
             activeTo = raw.side == EntrySide.TO,
             rateLine = ConverterEngine.rateLine(raw.fromCode, raw.toCode, fRate, tRate),
-            updatedLine = updatedLine(raw.offlineMode, snapshot),
-            modeLabel = if (raw.offlineMode) "Offline" else "Live",
-            offlineMode = raw.offlineMode,
+            updatedLine = updatedLine(snapshot),
+            modeLabel = if (online) "Online" else "Offline",
+            online = online,
             darkTheme = raw.darkTheme,
             sheetOpen = sheetTarget != null,
             sheetTitle = if (sheetTarget == SheetTarget.FROM) "Convert from" else "Convert to",
@@ -170,16 +179,23 @@ class ConverterViewModel(
         )
     }
 
-    private fun updatedLine(offlineIntent: Boolean, snapshot: RatesSnapshot?): String {
-        if (snapshot == null) return "Offline"
-        if (!offlineIntent && snapshot.source == RatesSource.REMOTE) return "Just now"
-        if (snapshot.fetchedAtMillis <= 0L) return "Offline"
-        val hours = ((System.currentTimeMillis() - snapshot.fetchedAtMillis) / 3_600_000L).toInt()
-        return if (hours < 1) "Saved <1h ago" else "Saved ${hours}h ago"
+    /** Human "Updated Xm/Xh/Xd ago" from the snapshot's real fetch time. */
+    private fun updatedLine(snapshot: RatesSnapshot?): String {
+        if (snapshot == null) return ""
+        if (snapshot.fetchedAtMillis <= 0L) return "Not updated yet"
+        val diff = System.currentTimeMillis() - snapshot.fetchedAtMillis
+        val sec = diff / 1000
+        val rel = when {
+            sec < 60 -> "just now"
+            sec < 3600 -> "${sec / 60}m ago"
+            sec < 86_400 -> "${sec / 3600}h ago"
+            else -> "${sec / 86_400}d ago"
+        }
+        return "Updated $rel"
     }
 
     private fun persist(raw: RawState) {
-        if (!raw.settingsLoaded) return // don't clobber storage with defaults before the first load completes
+        if (!raw.settingsLoaded) return
         viewModelScope.launch {
             preferences.save(
                 PersistedSettings(
@@ -196,7 +212,6 @@ class ConverterViewModel(
         rawState.value = rawState.value.copy(entry = ConverterEngine.press(rawState.value.entry, key))
     }
 
-    /** Clears the focused entry back to "0" without touching side/currencies (product addition beyond the design spec). */
     fun clearEntry() {
         rawState.value = rawState.value.copy(entry = "0")
     }
@@ -213,18 +228,11 @@ class ConverterViewModel(
         persist(next)
     }
 
-    fun toggleOfflineMode() {
-        val next = !rawState.value.offlineMode
-        rawState.value = rawState.value.copy(offlineMode = next)
-        if (!next) refreshFromRemote() // switching to Live -> attempt a fetch
-    }
-
     private fun refreshFromRemote() {
         if (rawState.value.isRefreshing) return
         rawState.value = rawState.value.copy(isRefreshing = true)
         viewModelScope.launch {
-            repository.refreshFromRemote()
-                .onSuccess { ratesState.value = it }
+            repository.refreshFromRemote().onSuccess { ratesState.value = it }
             rawState.value = rawState.value.copy(isRefreshing = false)
         }
     }
@@ -275,10 +283,11 @@ class ConverterViewModel(
     class Factory(
         private val repository: RatesRepository,
         private val preferences: PreferencesRepository,
+        private val connectivity: ConnectivityObserver,
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ConverterViewModel(repository, preferences) as T
+            return ConverterViewModel(repository, preferences, connectivity) as T
         }
     }
 }

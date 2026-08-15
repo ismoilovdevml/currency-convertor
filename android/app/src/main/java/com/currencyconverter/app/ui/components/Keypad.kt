@@ -6,13 +6,12 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Backspace
@@ -33,47 +32,58 @@ import com.currencyconverter.app.ui.theme.PlusJakartaSans
 private const val BACKSPACE_KEY = "⌫"
 private val KEYS = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", BACKSPACE_KEY)
 
+/**
+ * 3×4 numeric keypad. Uses weighted rows/cells (no fixed height) so it fills exactly the space
+ * the parent gives it and NEVER clips the bottom row — the previous fixed 326.dp + aspectRatio
+ * grid overflowed the last row on wider/taller devices (e.g. Galaxy S24 Ultra).
+ */
 @Composable
 fun Keypad(onPress: (String) -> Unit, modifier: Modifier = Modifier) {
-    val colors = CurrencyConverterTheme.colors
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(3),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    Column(
+        modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier
-            .fillMaxWidth()
-            .height(326.dp),
-        userScrollEnabled = false,
     ) {
-        items(KEYS) { key ->
-            val interaction = remember { MutableInteractionSource() }
-            val pressed by interaction.collectIsPressedAsState()
-            Box(
-                modifier = Modifier
-                    .aspectRatio(1.6f)
-                    .clip(RoundedCornerShape(18.dp))
-                    .background(if (pressed) colors.accent else colors.key)
-                    .clickable(interactionSource = interaction, indication = null) { onPress(key) },
-                contentAlignment = Alignment.Center,
+        KEYS.chunked(3).forEach { rowKeys ->
+            Row(
+                modifier = Modifier.fillMaxWidth().weight(1f),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                val tint = if (pressed) colors.accentInk else colors.fg
-                if (key == BACKSPACE_KEY) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.Backspace,
-                        contentDescription = "Backspace",
-                        tint = tint,
-                        modifier = Modifier.size(24.dp),
-                    )
-                } else {
-                    Text(
-                        text = key,
-                        fontFamily = PlusJakartaSans,
-                        fontSize = 21.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = tint,
-                    )
+                rowKeys.forEach { key ->
+                    KeyButton(key = key, onPress = onPress, modifier = Modifier.weight(1f).fillMaxHeight())
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun RowScope.KeyButton(key: String, onPress: (String) -> Unit, modifier: Modifier) {
+    val colors = CurrencyConverterTheme.colors
+    val interaction = remember { MutableInteractionSource() }
+    val pressed by interaction.collectIsPressedAsState()
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(18.dp))
+            .background(if (pressed) colors.accent else colors.key)
+            .clickable(interactionSource = interaction, indication = null) { onPress(key) },
+        contentAlignment = Alignment.Center,
+    ) {
+        val tint = if (pressed) colors.accentInk else colors.fg
+        if (key == BACKSPACE_KEY) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.Backspace,
+                contentDescription = "Backspace",
+                tint = tint,
+                modifier = Modifier.size(24.dp),
+            )
+        } else {
+            Text(
+                text = key,
+                fontFamily = PlusJakartaSans,
+                fontSize = 21.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = tint,
+            )
         }
     }
 }
