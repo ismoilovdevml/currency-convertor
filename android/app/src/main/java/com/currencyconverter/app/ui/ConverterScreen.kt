@@ -224,7 +224,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
         Spacer(modifier = Modifier.height(8.dp))
 
         // ---- Keypad: weight(1f) so it fills remaining space and never clips on any device ----
-        Keypad(onPress = { viewModel.press(it) }, modifier = Modifier.weight(1f))
+        Keypad(onPress = { viewModel.press(it) }, onClearAll = { viewModel.clearEntry() }, modifier = Modifier.weight(1f))
     }
     }
 

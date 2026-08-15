@@ -1,7 +1,9 @@
 package com.currencyconverter.app.ui.components
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -38,7 +40,7 @@ private val KEYS = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0",
  * grid overflowed the last row on wider/taller devices (e.g. Galaxy S24 Ultra).
  */
 @Composable
-fun Keypad(onPress: (String) -> Unit, modifier: Modifier = Modifier) {
+fun Keypad(onPress: (String) -> Unit, onClearAll: () -> Unit, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -49,23 +51,36 @@ fun Keypad(onPress: (String) -> Unit, modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 rowKeys.forEach { key ->
-                    KeyButton(key = key, onPress = onPress, modifier = Modifier.weight(1f).fillMaxHeight())
+                    // Long-pressing backspace clears the whole entry (handy shortcut for the Clear button).
+                    val onLong = if (key == BACKSPACE_KEY) onClearAll else null
+                    KeyButton(key = key, onPress = onPress, onLongClick = onLong, modifier = Modifier.weight(1f).fillMaxHeight())
                 }
             }
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun RowScope.KeyButton(key: String, onPress: (String) -> Unit, modifier: Modifier) {
+private fun RowScope.KeyButton(key: String, onPress: (String) -> Unit, onLongClick: (() -> Unit)?, modifier: Modifier) {
     val colors = CurrencyConverterTheme.colors
     val interaction = remember { MutableInteractionSource() }
     val pressed by interaction.collectIsPressedAsState()
+    val clickModifier = if (onLongClick != null) {
+        Modifier.combinedClickable(
+            interactionSource = interaction,
+            indication = null,
+            onClick = { onPress(key) },
+            onLongClick = onLongClick,
+        )
+    } else {
+        Modifier.clickable(interactionSource = interaction, indication = null) { onPress(key) }
+    }
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(18.dp))
             .background(if (pressed) colors.accent else colors.key)
-            .clickable(interactionSource = interaction, indication = null) { onPress(key) },
+            .then(clickModifier),
         contentAlignment = Alignment.Center,
     ) {
         val tint = if (pressed) colors.accentInk else colors.fg

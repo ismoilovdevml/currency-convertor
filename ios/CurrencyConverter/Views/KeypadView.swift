@@ -22,7 +22,12 @@ struct KeypadView: View {
                 ForEach(rows, id: \.self) { row in
                     HStack(spacing: 8) {
                         ForEach(row, id: \.self) { key in
-                            KeypadButton(label: key, theme: theme) {
+                            // Long-pressing backspace clears the whole entry (parity with Android).
+                            KeypadButton(
+                                label: key,
+                                theme: theme,
+                                onLongPress: key == "⌫" ? { vm.clearEntry() } : nil,
+                            ) {
                                 vm.pressKey(key)
                             }
                             .accessibilityIdentifier(key == "⌫" ? "keyBackspace" : "key_\(key)")
@@ -73,10 +78,11 @@ private struct ClearButtonStyle: ButtonStyle {
 private struct KeypadButton: View {
     let label: String
     let theme: ThemePalette
+    var onLongPress: (() -> Void)? = nil
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        let button = Button(action: action) {
             Group {
                 if label == "⌫" {
                     Image(systemName: "delete.left")
@@ -89,6 +95,14 @@ private struct KeypadButton: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .buttonStyle(KeyButtonStyle(theme: theme))
+
+        if let onLongPress {
+            button.simultaneousGesture(
+                LongPressGesture(minimumDuration: 0.4).onEnded { _ in onLongPress() }
+            )
+        } else {
+            button
+        }
     }
 }
 
