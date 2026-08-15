@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.CurrencyConverter" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#F0F4F1</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#F0F4F1</item>
+    </style>
+</resources>

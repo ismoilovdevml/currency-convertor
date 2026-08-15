@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02E769BA7980093EFF1BF55A /* RatesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA26E6161C2DBE2F550BD929 /* RatesRepository.swift */; };
+		17821EFA2BF2671193633707 /* ConverterEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63DC9BA410EB22E23B4D5F1 /* ConverterEngineTests.swift */; };
+		17C4EE6EF57D092795EB1E3C /* CurrencySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524725EB744F961DDDCA152F /* CurrencySheetView.swift */; };
+		1E23CEBCD5B559726BAA7903 /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72F86D6F06DCC90E7D412803 /* PlusJakartaSans-SemiBold.ttf */; };
+		2213859C8B0A5CBB2AA1152C /* ConverterEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88176FF9030E171B30B022BE /* ConverterEngine.swift */; };
+		29E59CE31D36EB72B45CB0AA /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BBFB856624F11F0819800D /* ConverterViewModel.swift */; };
+		311F07F3F9AF2912C3D7461A /* RateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9649E019E006F2338830851 /* RateRowView.swift */; };
+		3A36D6686C4883DD4635B817 /* CurrencySheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B8C64E8206A1F33522E6C /* CurrencySheetUITests.swift */; };
+		3F21C7CF500F15264D7FB5EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2340EEB7CD8BBD2097C1AAB /* Theme.swift */; };
+		563B061B98A72F031868E9F8 /* FlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616E93564FEA6D516477D6A2 /* FlagView.swift */; };
+		64690400E3EE828333FD4596 /* CurrencyConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */; };
+		67141CEB5BC748FF0F11D612 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */; };
+		6DB9D0E56C243958BCD78BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD40307F21E48E0C221BD5B /* Assets.xcassets */; };
+		752226A153442D166A084263 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 260D074AAE90838A232D6762 /* currencies.json */; };
+		AAC3BD256EBFEBE3C6C4664A /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */; };
+		B096A908F2B465C3BD689824 /* ConverterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A3F486A3CE1694A1200AE /* ConverterCardView.swift */; };
+		B0B08E9FD7A5162A5FFD3329 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C3264651018A5033F8EAD /* Currency.swift */; };
+		B3D3C9D72C0612D6F1A6B64D /* LogoGlyph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17397CA0B7078E655B92A934 /* LogoGlyph.swift */; };
+		B8893F8538AF85D1B4711A81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78686C85481DA6A0E5FE18B /* ContentView.swift */; };
+		B9EBC3F1753475DB7D7420AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7F793651CB22DD446D19F /* HeaderView.swift */; };
+		C355D09511B10E2234D3ADFB /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8EB91686E9013030ED0D13E /* PlusJakartaSans-Bold.ttf */; };
+		D4AE330E5F4C2F039302FA11 /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D176EC38330CE54C858B45A /* Rates.swift */; };
+		D6EBF7E6562D1CF3650C3435 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A84A5A04B9CD4BA7A1DAC98 /* KeypadView.swift */; };
+		DCC24E3FD28EDE31C8FC3A80 /* BlinkingCaretView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C32BFBAAA8DF572EA439320 /* BlinkingCaretView.swift */; };
+		DE6A164591544FB0D923F208 /* flags in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB87C7DB9A817B655A1753 /* flags */; };
+		DF97D4FBD56988D208492549 /* seed-rates.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF136E874E7C92299226C3B /* seed-rates.json */; };
+		F6807A4C7D34C957E3A52649 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C05DD078BC2CDC7DE73CF /* PlusJakartaSans-Regular.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11C4AB8193A3B2DDECEACDE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C250B105F17C67C92099144D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF5881164AFECDC9C892752F;
+			remoteInfo = CurrencyConverter;
+		};
+		B71AD559529274C13379F0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C250B105F17C67C92099144D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF5881164AFECDC9C892752F;
+			remoteInfo = CurrencyConverter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D176EC38330CE54C858B45A /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
+		16BBFB856624F11F0819800D /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
+		17397CA0B7078E655B92A934 /* LogoGlyph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoGlyph.swift; sourceTree = "<group>"; };
+		1A84A5A04B9CD4BA7A1DAC98 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
+		260D074AAE90838A232D6762 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
+		2C32BFBAAA8DF572EA439320 /* BlinkingCaretView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkingCaretView.swift; sourceTree = "<group>"; };
+		2EDB87C7DB9A817B655A1753 /* flags */ = {isa = PBXFileReference; lastKnownFileType = folder; name = flags; path = CurrencyConverter/Resources/flags; sourceTree = SOURCE_ROOT; };
+		3DD40307F21E48E0C221BD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F9C05DD078BC2CDC7DE73CF /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
+		524725EB744F961DDDCA152F /* CurrencySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySheetView.swift; sourceTree = "<group>"; };
+		5B8C3264651018A5033F8EAD /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		60F7F793651CB22DD446D19F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		616E93564FEA6D516477D6A2 /* FlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagView.swift; sourceTree = "<group>"; };
+		641E38B27DCCA728BBF09A69 /* CurrencyConverterUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CurrencyConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EF136E874E7C92299226C3B /* seed-rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "seed-rates.json"; sourceTree = "<group>"; };
+		718A3F486A3CE1694A1200AE /* ConverterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCardView.swift; sourceTree = "<group>"; };
+		72F86D6F06DCC90E7D412803 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		88176FF9030E171B30B022BE /* ConverterEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterEngine.swift; sourceTree = "<group>"; };
+		A25B8C64E8206A1F33522E6C /* CurrencySheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySheetUITests.swift; sourceTree = "<group>"; };
+		A8EB91686E9013030ED0D13E /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
+		AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
+		BC9E948A05CEA85E259486A2 /* CurrencyConverter.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA26E6161C2DBE2F550BD929 /* RatesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRepository.swift; sourceTree = "<group>"; };
+		E2340EEB7CD8BBD2097C1AAB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		E5BCED2EA14B14F30FF683B5 /* CurrencyConverterTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E78686C85481DA6A0E5FE18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E9649E019E006F2338830851 /* RateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRowView.swift; sourceTree = "<group>"; };
+		EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterApp.swift; sourceTree = "<group>"; };
+		F63DC9BA410EB22E23B4D5F1 /* ConverterEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterEngineTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		030453D890A7E8CE28CA3597 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				260D074AAE90838A232D6762 /* currencies.json */,
+				2EDB87C7DB9A817B655A1753 /* flags */,
+				6EF136E874E7C92299226C3B /* seed-rates.json */,
+				A221C954B55CDC0D8353A781 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		358815A15D94AD5D9FC9A88D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DA26E6161C2DBE2F550BD929 /* RatesRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4DF9B8BF5EB0F2DF124038D1 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				17397CA0B7078E655B92A934 /* LogoGlyph.swift */,
+				E2340EEB7CD8BBD2097C1AAB /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		603407881E1E2D7064DE2D92 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7F652C2B88D145384E38709B /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				88176FF9030E171B30B022BE /* ConverterEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		8C199D548AFFF14EB23CAA90 /* CurrencyConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				F63DC9BA410EB22E23B4D5F1 /* ConverterEngineTests.swift */,
+			);
+			path = CurrencyConverterTests;
+			sourceTree = "<group>";
+		};
+		A221C954B55CDC0D8353A781 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A8EB91686E9013030ED0D13E /* PlusJakartaSans-Bold.ttf */,
+				EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */,
+				AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */,
+				3F9C05DD078BC2CDC7DE73CF /* PlusJakartaSans-Regular.ttf */,
+				72F86D6F06DCC90E7D412803 /* PlusJakartaSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A7A1125FA3CB9C339AD70240 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC9E948A05CEA85E259486A2 /* CurrencyConverter.app */,
+				E5BCED2EA14B14F30FF683B5 /* CurrencyConverterTests.xctest */,
+				641E38B27DCCA728BBF09A69 /* CurrencyConverterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBEE236847351BB1ED8568CA /* CurrencyConverter */ = {
+			isa = PBXGroup;
+			children = (
+				3DD40307F21E48E0C221BD5B /* Assets.xcassets */,
+				603407881E1E2D7064DE2D92 /* App */,
+				7F652C2B88D145384E38709B /* Engine */,
+				D4760D65BF5EBFFF64B92DE9 /* Models */,
+				358815A15D94AD5D9FC9A88D /* Repository */,
+				030453D890A7E8CE28CA3597 /* Resources */,
+				4DF9B8BF5EB0F2DF124038D1 /* Theme */,
+				CF4842D86B871AD5955572D6 /* ViewModel */,
+				E6054E82F8AC3667EDF4E378 /* Views */,
+			);
+			path = CurrencyConverter;
+			sourceTree = "<group>";
+		};
+		CF4842D86B871AD5955572D6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				16BBFB856624F11F0819800D /* ConverterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D4760D65BF5EBFFF64B92DE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B8C3264651018A5033F8EAD /* Currency.swift */,
+				0D176EC38330CE54C858B45A /* Rates.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D833F7C10193E82AE63DD049 = {
+			isa = PBXGroup;
+			children = (
+				CBEE236847351BB1ED8568CA /* CurrencyConverter */,
+				8C199D548AFFF14EB23CAA90 /* CurrencyConverterTests */,
+				DEA205F4E98E408E34ED6000 /* CurrencyConverterUITests */,
+				A7A1125FA3CB9C339AD70240 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DEA205F4E98E408E34ED6000 /* CurrencyConverterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A25B8C64E8206A1F33522E6C /* CurrencySheetUITests.swift */,
+			);
+			path = CurrencyConverterUITests;
+			sourceTree = "<group>";
+		};
+		E6054E82F8AC3667EDF4E378 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C32BFBAAA8DF572EA439320 /* BlinkingCaretView.swift */,
+				E78686C85481DA6A0E5FE18B /* ContentView.swift */,
+				718A3F486A3CE1694A1200AE /* ConverterCardView.swift */,
+				524725EB744F961DDDCA152F /* CurrencySheetView.swift */,
+				616E93564FEA6D516477D6A2 /* FlagView.swift */,
+				60F7F793651CB22DD446D19F /* HeaderView.swift */,
+				1A84A5A04B9CD4BA7A1DAC98 /* KeypadView.swift */,
+				E9649E019E006F2338830851 /* RateRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6C595D1A436E5291D6FD2197 /* CurrencyConverterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01CA6CE47B4DF52E38498ED1 /* Build configuration list for PBXNativeTarget "CurrencyConverterUITests" */;
+			buildPhases = (
+				9D8F45E5416A13DDC8C57655 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E051841AA7DE2DF67C3B6B5 /* PBXTargetDependency */,
+			);
+			name = CurrencyConverterUITests;
+			packageProductDependencies = (
+			);
+			productName = CurrencyConverterUITests;
+			productReference = 641E38B27DCCA728BBF09A69 /* CurrencyConverterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		97DE516380ACB168BDD01328 /* CurrencyConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB1ADAEC582EE7F162A238F5 /* Build configuration list for PBXNativeTarget "CurrencyConverterTests" */;
+			buildPhases = (
+				C4071071E6C5F4E9F04A75CA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				877CED53C92692F53ED44837 /* PBXTargetDependency */,
+			);
+			name = CurrencyConverterTests;
+			packageProductDependencies = (
+			);
+			productName = CurrencyConverterTests;
+			productReference = E5BCED2EA14B14F30FF683B5 /* CurrencyConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF5881164AFECDC9C892752F /* CurrencyConverter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4851325FB121F7618BDC5C2C /* Build configuration list for PBXNativeTarget "CurrencyConverter" */;
+			buildPhases = (
+				979B222AA4ABDDAAAE1DDA1F /* Sources */,
+				2AC749055B4C90EFFFE54FC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CurrencyConverter;
+			packageProductDependencies = (
+			);
+			productName = CurrencyConverter;
+			productReference = BC9E948A05CEA85E259486A2 /* CurrencyConverter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C250B105F17C67C92099144D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					6C595D1A436E5291D6FD2197 = {
+						TestTargetID = FF5881164AFECDC9C892752F;
+					};
+				};
+			};
+			buildConfigurationList = 11C38EE8E3393F0EF65A11C7 /* Build configuration list for PBXProject "CurrencyConverter" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D833F7C10193E82AE63DD049;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A7A1125FA3CB9C339AD70240 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF5881164AFECDC9C892752F /* CurrencyConverter */,
+				97DE516380ACB168BDD01328 /* CurrencyConverterTests */,
+				6C595D1A436E5291D6FD2197 /* CurrencyConverterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AC749055B4C90EFFFE54FC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DB9D0E56C243958BCD78BD5 /* Assets.xcassets in Resources */,
+				C355D09511B10E2234D3ADFB /* PlusJakartaSans-Bold.ttf in Resources */,
+				67141CEB5BC748FF0F11D612 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
+				AAC3BD256EBFEBE3C6C4664A /* PlusJakartaSans-Medium.ttf in Resources */,
+				F6807A4C7D34C957E3A52649 /* PlusJakartaSans-Regular.ttf in Resources */,
+				1E23CEBCD5B559726BAA7903 /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				752226A153442D166A084263 /* currencies.json in Resources */,
+				DE6A164591544FB0D923F208 /* flags in Resources */,
+				DF97D4FBD56988D208492549 /* seed-rates.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		979B222AA4ABDDAAAE1DDA1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC24E3FD28EDE31C8FC3A80 /* BlinkingCaretView.swift in Sources */,
+				B8893F8538AF85D1B4711A81 /* ContentView.swift in Sources */,
+				B096A908F2B465C3BD689824 /* ConverterCardView.swift in Sources */,
+				2213859C8B0A5CBB2AA1152C /* ConverterEngine.swift in Sources */,
+				29E59CE31D36EB72B45CB0AA /* ConverterViewModel.swift in Sources */,
+				B0B08E9FD7A5162A5FFD3329 /* Currency.swift in Sources */,
+				64690400E3EE828333FD4596 /* CurrencyConverterApp.swift in Sources */,
+				17C4EE6EF57D092795EB1E3C /* CurrencySheetView.swift in Sources */,
+				563B061B98A72F031868E9F8 /* FlagView.swift in Sources */,
+				B9EBC3F1753475DB7D7420AE /* HeaderView.swift in Sources */,
+				D6EBF7E6562D1CF3650C3435 /* KeypadView.swift in Sources */,
+				B3D3C9D72C0612D6F1A6B64D /* LogoGlyph.swift in Sources */,
+				311F07F3F9AF2912C3D7461A /* RateRowView.swift in Sources */,
+				D4AE330E5F4C2F039302FA11 /* Rates.swift in Sources */,
+				02E769BA7980093EFF1BF55A /* RatesRepository.swift in Sources */,
+				3F21C7CF500F15264D7FB5EE /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D8F45E5416A13DDC8C57655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A36D6686C4883DD4635B817 /* CurrencySheetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4071071E6C5F4E9F04A75CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17821EFA2BF2671193633707 /* ConverterEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		877CED53C92692F53ED44837 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF5881164AFECDC9C892752F /* CurrencyConverter */;
+			targetProxy = B71AD559529274C13379F0EB /* PBXContainerItemProxy */;
+		};
+		8E051841AA7DE2DF67C3B6B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF5881164AFECDC9C892752F /* CurrencyConverter */;
+			targetProxy = 11C4AB8193A3B2DDECEACDE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		14252CAE11809B21EA18C6E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1AABBFF6A6A6C628F14DE19C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
+			};
+			name = Debug;
+		};
+		394DC0A4EF333580CE914FA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Generated/CurrencyConverter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4FE0FF8CD28ACF3189B09C1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurrencyConverter;
+			};
+			name = Debug;
+		};
+		654C002DBFA64DBFDC64F714 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
+			};
+			name = Release;
+		};
+		95193F73B46A8E3889EF5B54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Generated/CurrencyConverter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B6EDA4467FF1472561ED2748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C8786FE4DD8F70B20C98D4D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.currencyconvertor.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CurrencyConverter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01CA6CE47B4DF52E38498ED1 /* Build configuration list for PBXNativeTarget "CurrencyConverterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FE0FF8CD28ACF3189B09C1D /* Debug */,
+				C8786FE4DD8F70B20C98D4D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		11C38EE8E3393F0EF65A11C7 /* Build configuration list for PBXProject "CurrencyConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6EDA4467FF1472561ED2748 /* Debug */,
+				14252CAE11809B21EA18C6E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4851325FB121F7618BDC5C2C /* Build configuration list for PBXNativeTarget "CurrencyConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394DC0A4EF333580CE914FA3 /* Debug */,
+				95193F73B46A8E3889EF5B54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB1ADAEC582EE7F162A238F5 /* Build configuration list for PBXNativeTarget "CurrencyConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AABBFF6A6A6C628F14DE19C /* Debug */,
+				654C002DBFA64DBFDC64F714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C250B105F17C67C92099144D /* Project object */;
+}

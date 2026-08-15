@@ -1,0 +1,33 @@
+# ---------- OS / editors ----------
+.DS_Store
+*.swp
+.idea/
+*.iml
+.vscode/
+
+# ---------- Android ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.kotlin/
+android/captures/
+*.apk
+*.aab
+*.keystore
+*.jks
+keystore.properties
+
+# ---------- iOS / Xcode ----------
+ios/build/
+ios/DerivedData/
+ios/Generated/
+**/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# ---------- Dev artifacts (kept out of VCS) ----------
+ios/proof-*.png
+android/proof-*.png
+
+# ---------- Design handoff bundles ----------
+*.zip

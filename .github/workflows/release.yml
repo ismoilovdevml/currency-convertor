@@ -1,0 +1,52 @@
+name: Release
+
+# Push a tag like v1.0.0 to build a PRODUCTION-signed APK and publish it as a GitHub Release.
+#   git tag v1.0.0 && git push origin v1.0.0
+on:
+  push:
+    tags: [ 'v*' ]
+
+permissions:
+  contents: write
+
+jobs:
+  release-apk:
+    name: Build & publish Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Decode release keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/release.keystore"
+
+      - name: Build release APK (v1+v2+v3 signed)
+        working-directory: android
+        env:
+          RELEASE_STORE_FILE: ${{ runner.temp }}/release.keystore
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease
+
+      - name: Verify signature schemes
+        run: |
+          APK="$(find android/app/build/outputs/apk/release -name '*.apk' | head -1)"
+          BT="$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)"
+          "$BT/apksigner" verify --verbose "$APK" | grep -iE "scheme|signers"
+          cp "$APK" CurrencyConverter.apk
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: CurrencyConverter.apk
+          generate_release_notes: true
+          fail_on_unmatched_files: true
