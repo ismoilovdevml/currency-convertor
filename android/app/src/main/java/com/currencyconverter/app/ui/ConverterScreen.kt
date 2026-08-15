@@ -13,6 +13,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -54,6 +55,14 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
     // System back closes the open picker sheet instead of exiting the app.
     BackHandler(enabled = state.sheetOpen) { viewModel.closeSheet() }
 
+    // Responsive: on short screens compact the card so the keypad is never squeezed off-screen.
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+    val compact = maxHeight < 680.dp
+    val cardPad = if (compact) 14.dp else 20.dp
+    val dividerPad = if (compact) 6.dp else 14.dp
+    val headerH = if (compact) 50.dp else 58.dp
+    val valueMaxSp = if (compact) 30 else 46
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -61,7 +70,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
     ) {
         // ---- Header ----
         Row(
-            modifier = Modifier.fillMaxWidth().height(58.dp),
+            modifier = Modifier.fillMaxWidth().height(headerH),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
@@ -117,7 +126,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(28.dp))
                 .background(colors.surface)
-                .padding(20.dp),
+                .padding(cardPad),
         ) {
             CurrencyRowButton(
                 code = state.fromCode,
@@ -130,11 +139,12 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
                 value = state.fromValue,
                 active = state.activeFrom,
                 valueColor = colors.fg,
+                maxSp = valueMaxSp,
                 onClick = { viewModel.focusSide(EntrySide.FROM) },
             )
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 14.dp),
+                modifier = Modifier.fillMaxWidth().padding(vertical = dividerPad),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
@@ -163,6 +173,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
                 value = state.toValue,
                 active = state.activeTo,
                 valueColor = colors.accentText,
+                maxSp = valueMaxSp,
                 onClick = { viewModel.focusSide(EntrySide.TO) },
             )
         }
@@ -214,6 +225,7 @@ fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, asse
 
         // ---- Keypad: weight(1f) so it fills remaining space and never clips on any device ----
         Keypad(onPress = { viewModel.press(it) }, modifier = Modifier.weight(1f))
+    }
     }
 
     CurrencySheetOverlay(
@@ -273,6 +285,7 @@ private fun ValueRow(
     value: String,
     active: Boolean,
     valueColor: Color,
+    maxSp: Int,
     onClick: () -> Unit,
 ) {
     val colors = CurrencyConverterTheme.colors
@@ -287,6 +300,7 @@ private fun ValueRow(
         AutoSizeAmountText(
             value = value,
             color = valueColor,
+            maxSp = maxSp,
             modifier = Modifier.weight(1f, fill = false),
         )
         if (active) {

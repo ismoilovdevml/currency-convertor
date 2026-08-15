@@ -3,6 +3,11 @@ import SwiftUI
 struct CurrencySheetView: View {
     @Bindable var vm: ConverterViewModel
     let theme: ThemePalette
+    /// Drives the search field's keyboard focus. Set true as soon as the
+    /// sheet appears so the software keyboard is requested automatically
+    /// (per user feedback: search should be ready to type into immediately,
+    /// not require a second tap on top of the one that opened the sheet).
+    @FocusState private var searchFocused: Bool
 
     var body: some View {
         ZStack {
@@ -19,6 +24,14 @@ struct CurrencySheetView: View {
             .ignoresSafeArea(edges: .bottom)
         }
         .transition(.opacity)
+        .onAppear {
+            // Wait out ContentView's spring-in transition (response 0.32s)
+            // before requesting focus — grabbing it mid-transition can be
+            // dropped by UIKit while the sheet's frame is still animating.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                searchFocused = true
+            }
+        }
     }
 
     private var sheetBody: some View {
@@ -57,6 +70,7 @@ struct CurrencySheetView: View {
                     .foregroundStyle(theme.fg)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
+                    .focused($searchFocused)
                     .accessibilityIdentifier("currencySearchField")
             }
             .padding(.horizontal, 14)

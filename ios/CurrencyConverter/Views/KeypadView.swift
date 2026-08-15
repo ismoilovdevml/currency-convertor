@@ -63,6 +63,10 @@ private struct ClearButtonStyle: ButtonStyle {
                     .fill(theme.accentSoft)
                     .opacity(configuration.isPressed ? 0.7 : 1)
             )
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(theme.line, lineWidth: 1)
+            )
     }
 }
 

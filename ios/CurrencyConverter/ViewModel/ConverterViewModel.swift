@@ -49,8 +49,9 @@ final class ConverterViewModel {
     var isOnline: Bool = false
     var sheetSide: ConverterSide?
     var query: String = ""
-    /// Currency codes the user starred, most-recently-favorited last —
-    /// matches design2's `favs` array (default: USD, UZS, EUR).
+    /// Currency codes the user starred, most-recently-favorited last.
+    /// Empty by default — the user picks their own favorites (per user
+    /// feedback: pre-starring USD/UZS/EUR was surprising/unwanted).
     private(set) var favorites: [String]
 
     // Rates data (offline-first; see RatesRepository).
@@ -81,7 +82,7 @@ final class ConverterViewModel {
 
         self.fromCode = defaults.string(forKey: PersistenceKey.fromCode) ?? "USD"
         self.toCode = defaults.string(forKey: PersistenceKey.toCode) ?? "UZS"
-        self.favorites = defaults.stringArray(forKey: PersistenceKey.favorites) ?? ["USD", "UZS", "EUR"]
+        self.favorites = defaults.stringArray(forKey: PersistenceKey.favorites) ?? []
         if defaults.bool(forKey: PersistenceKey.hasStoredDarkMode) {
             self.isDarkMode = defaults.bool(forKey: PersistenceKey.isDarkMode)
         } else {

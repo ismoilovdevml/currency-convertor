@@ -54,7 +54,7 @@ final class CurrencySheetUITests: XCTestCase {
         XCTAssertTrue(rateLine.waitForExistence(timeout: 3), "Rate line did not recompute for the new FROM currency")
     }
 
-    func test_defaultFavoritesPinnedToTop_andStarTogglesWork() throws {
+    func test_noDefaultFavorites_andStarTogglesWork() throws {
         let app = XCUIApplication()
         app.launch()
         XCTAssertTrue(app.staticTexts["fromCodeText"].waitForExistence(timeout: 5))
@@ -62,26 +62,31 @@ final class CurrencySheetUITests: XCTestCase {
         app.buttons["fromCurrencyRow"].tap()
         XCTAssertTrue(app.staticTexts["Convert from"].waitForExistence(timeout: 3))
 
-        // Default favorites (USD, UZS, EUR) must be visible without any
-        // scrolling or search — they're pinned to the top of the list.
-        XCTAssertTrue(app.buttons["currencyRow_USD"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.buttons["currencyRow_UZS"].exists)
-        XCTAssertTrue(app.buttons["currencyRow_EUR"].exists)
-        XCTAssertEqual(app.buttons["starButton_USD"].label, "★", "Default favorite should render a filled star")
-
-        // AED is not a default favorite but is alphabetically first, so it's
-        // laid out near the top too (just after the 3 pinned favorites).
+        // Favorites are empty by default (per user feedback: the user picks
+        // their own, nothing is pre-starred). AED sorts alphabetically first
+        // with no favorites pinned above it, so it's laid out at the very
+        // top of the list without any scrolling or search.
         let aedStar = app.buttons["starButton_AED"]
         XCTAssertTrue(aedStar.waitForExistence(timeout: 3))
         XCTAssertEqual(aedStar.label, "☆", "AED should not be a favorite by default")
 
+        // USD (the current FROM currency) is also not pre-favorited — it's
+        // far enough alphabetically that it isn't laid out without a search.
+        let searchField = app.textFields["currencySearchField"]
+        XCTAssertTrue(searchField.waitForExistence(timeout: 3))
+        searchField.tap()
+        searchField.typeText("USD")
+        let usdStar = app.buttons["starButton_USD"]
+        XCTAssertTrue(usdStar.waitForExistence(timeout: 3))
+        XCTAssertEqual(usdStar.label, "☆", "USD should not be pre-favorited by default")
+
         // Tapping the star favorites it — the glyph flips to filled.
-        aedStar.tap()
-        XCTAssertEqual(aedStar.label, "★", "Star did not toggle to favorited after tap")
+        usdStar.tap()
+        XCTAssertEqual(usdStar.label, "★", "Star did not toggle to favorited after tap")
 
         // Un-favorite it again to leave persisted state clean for other runs.
-        aedStar.tap()
-        XCTAssertEqual(aedStar.label, "☆", "Star did not toggle back to un-favorited")
+        usdStar.tap()
+        XCTAssertEqual(usdStar.label, "☆", "Star did not toggle back to un-favorited")
     }
 
     func test_clearButton_resetsEntryToZero() throws {
@@ -155,9 +160,11 @@ final class CurrencySheetUITests: XCTestCase {
     }
 
     /// Not a functional assertion — opens the "Convert from" sheet and
-    /// attaches a real screenshot proving the favorite stars (★ USD/UZS/EUR
-    /// pinned to top, ☆ everything else) actually render, per user feedback
-    /// item 3. Does not toggle anything, so it leaves persisted state as-is.
+    /// attaches a real screenshot proving the picker renders with NO
+    /// pre-starred favorites (☆ on every row, including AED at the top) —
+    /// per user feedback, favorites start empty until the user stars one
+    /// themselves. Does not toggle anything, so it leaves persisted state
+    /// as-is.
     ///
     /// Named `zzw_` (before `zzx_`) deliberately: it must run against the
     /// clean default state, not after the persistence test's dark-theme +

@@ -28,12 +28,13 @@ fun AutoSizeAmountText(
     value: String,
     color: Color,
     modifier: Modifier = Modifier,
+    maxSp: Int = MAX_SP,
 ) {
     val measurer = rememberTextMeasurer()
     BoxWithConstraints(modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
         val maxWidthPx = constraints.maxWidth
-        val fontSizeSp = remember(value, maxWidthPx) {
-            fitFontSize(measurer, value, maxWidthPx)
+        val fontSizeSp = remember(value, maxWidthPx, maxSp) {
+            fitFontSize(measurer, value, maxWidthPx, maxSp)
         }
         Text(
             text = value,
@@ -52,8 +53,9 @@ private fun fitFontSize(
     measurer: androidx.compose.ui.text.TextMeasurer,
     value: String,
     maxWidthPx: Int,
+    maxSp: Int = MAX_SP,
 ): Int {
-    if (maxWidthPx <= 0) return MAX_SP
+    if (maxWidthPx <= 0) return maxSp
 
     fun widthAt(sizeSp: Int): Int {
         val layout = measurer.measure(
@@ -68,10 +70,10 @@ private fun fitFontSize(
         return layout.size.width
     }
 
-    // Binary search the largest size in [MIN_SP, MAX_SP] whose measured width fits.
-    if (widthAt(MAX_SP) <= maxWidthPx) return MAX_SP
+    // Binary search the largest size in [MIN_SP, maxSp] whose measured width fits.
+    if (widthAt(maxSp) <= maxWidthPx) return maxSp
     var lo = MIN_SP
-    var hi = MAX_SP
+    var hi = maxSp
     var best = MIN_SP
     while (lo <= hi) {
         val mid = (lo + hi) / 2
