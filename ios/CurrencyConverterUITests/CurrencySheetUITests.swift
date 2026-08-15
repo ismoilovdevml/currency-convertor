@@ -130,8 +130,14 @@ final class CurrencySheetUITests: XCTestCase {
         // a real, observable change regardless of run order.
         let themeIconBefore = app1.buttons["themeToggleButton"].label
 
-        // Change FROM to EUR.
+        // Change FROM to EUR. With no default favorites, EUR isn't laid out
+        // near the top of the LazyVStack purely alphabetically, so search
+        // for it first (the same way a real user would).
         app1.buttons["fromCurrencyRow"].tap()
+        let searchField1 = app1.textFields["currencySearchField"]
+        XCTAssertTrue(searchField1.waitForExistence(timeout: 3))
+        searchField1.tap()
+        searchField1.typeText("EUR")
         XCTAssertTrue(app1.buttons["currencyRow_EUR"].waitForExistence(timeout: 3))
         app1.buttons["currencyRow_EUR"].tap()
         XCTAssertTrue(app1.staticTexts["fromCodeText"].waitForExistence(timeout: 3))
@@ -184,15 +190,46 @@ final class CurrencySheetUITests: XCTestCase {
         // scrim behind it and close it again. So: at most ONE bounded
         // retry, each time confirming state before deciding whether to tap
         // again.
+        // AED sorts alphabetically first with no favorites pinned above it,
+        // so — unlike USD — it's laid out at the top without any scrolling.
         app.buttons["fromCurrencyRow"].tap()
-        if !app.buttons["currencyRow_USD"].waitForExistence(timeout: 2) {
+        if !app.buttons["currencyRow_AED"].waitForExistence(timeout: 2) {
             app.buttons["fromCurrencyRow"].tap()
         }
-        XCTAssertTrue(app.buttons["currencyRow_USD"].waitForExistence(timeout: 6), "Sheet with favorite rows never opened")
+        XCTAssertTrue(app.buttons["currencyRow_AED"].waitForExistence(timeout: 6), "Sheet with currency rows never opened")
         Thread.sleep(forTimeInterval: 0.5)
 
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = "currency-sheet-favorites"
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
+    /// Audit proof (temporary, not part of the permanent regression suite):
+    /// investigates the user-reported "search field tap doesn't bring up the
+    /// keyboard on iPhone 17 Pro Max" bug. Opens the sheet, taps the search
+    /// field via a real touch (XCUITest .tap(), the same touch-delivery path
+    /// as a physical/simulated tap — NOT typeText, which injects keystrokes
+    /// without needing a visible keyboard and would prove nothing here), then
+    /// screenshots BEFORE typing anything so the screenshot is evidence of
+    /// whether the on-screen keyboard actually appeared from the tap alone.
+    func test_zzv_keyboardAppearsAfterTappingSearchField() throws {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertTrue(app.staticTexts["fromCodeText"].waitForExistence(timeout: 5))
+
+        app.buttons["fromCurrencyRow"].tap()
+        let searchField = app.textFields["currencySearchField"]
+        XCTAssertTrue(searchField.waitForExistence(timeout: 3), "Currency sheet never opened")
+
+        searchField.tap()
+        // Give the keyboard animation + our 0.35s auto-focus delay time to settle.
+        Thread.sleep(forTimeInterval: 1.0)
+
+        XCTAssertTrue(app.keyboards.element.waitForExistence(timeout: 3), "On-screen keyboard did not appear after tapping the search field")
+
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = "search-field-keyboard-after-tap"
         attachment.lifetime = .keepAlways
         add(attachment)
     }

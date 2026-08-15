@@ -37,11 +37,12 @@ Every tagged release ships an installable APK. iOS is built from source (see bel
 
 - **Works fully offline** — a rates snapshot ships inside the app, so conversion works on first launch with no network.
 - **Real conversion** — cross-rate math through a USD base: `result = amount ÷ rate[from] × rate[to]`.
-- **166 currencies**, each with a circular flag; live editing on either side with a tabular, auto-shrinking amount.
-- **⭐ Favourites** — star currencies; they sort to the top and persist.
-- **Search** currencies by code or country, with auto-focus.
+- **166 currencies**, each with a circular flag (supranational currencies like XAF/XOF/XDR get a coloured code badge); live editing on either side with a tabular, auto-shrinking amount.
+- **Automatic Online / Offline** — follows the real network state; no manual toggle. The meta row shows when rates were last updated ("Updated 5m ago").
+- **⭐ Favourites** — star currencies; they sort to the top and persist (none starred by default).
+- **Search** currencies by code or country, with a search icon and auto-focus.
 - **Light & dark themes**, remembered across launches (along with your from/to pair and favourites).
-- **Live refresh when online** — pulls latest rates from a free, key-less API and caches them; the meta row shows the data age.
+- **Responsive** — the layout adapts from small phones to large tablets; the keypad never clips.
 
 ## 🏗️ How it works
 
