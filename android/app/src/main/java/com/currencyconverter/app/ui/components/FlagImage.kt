@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.produceState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,8 +49,9 @@ private suspend fun decodeFlag(assets: AssetManager, path: String): ImageBitmap?
 @Composable
 fun FlagImage(assets: AssetManager, assetPath: String?, size: Dp, modifier: Modifier = Modifier) {
     val colors = CurrencyConverterTheme.colors
-    val bitmap by produceState<ImageBitmap?>(initialValue = assetPath?.let { flagCache[it] }, key1 = assetPath) {
-        value = assetPath?.let { decodeFlag(assets, it) }
+    var bitmap by remember(assetPath) { mutableStateOf(assetPath?.let { flagCache[it] }) }
+    LaunchedEffect(assetPath) {
+        bitmap = assetPath?.let { decodeFlag(assets, it) }
     }
     Box(
         modifier = modifier
