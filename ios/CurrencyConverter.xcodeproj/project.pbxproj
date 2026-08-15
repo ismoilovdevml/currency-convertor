@@ -111,7 +111,6 @@
 		E9649E019E006F2338830851 /* RateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRowView.swift; sourceTree = "<group>"; };
 		EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		EB3E7A386AB61A0DE667973B /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EC448CD4C4172E38148A3C60 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterApp.swift; sourceTree = "<group>"; };
 		EDBBA044F636D550B4C54960 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6360634D19A82AAAF251551 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -354,7 +353,6 @@
 				es,
 				fa,
 				fr,
-				he,
 				hi,
 				id,
 				it,
@@ -479,7 +477,6 @@
 				8F516917FBEF11AED042AA1F /* es */,
 				2D339D4C53FEF654BF600923 /* fa */,
 				58A7D67ACEDCB2EB956EC796 /* fr */,
-				EC448CD4C4172E38148A3C60 /* he */,
 				24BCB939CB573917ED0BEF0B /* hi */,
 				E052FCC31C4EBAD0B392507A /* id */,
 				C43CAE83A67E96E70D196AB8 /* it */,

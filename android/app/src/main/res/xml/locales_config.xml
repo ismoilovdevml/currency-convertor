@@ -27,7 +27,6 @@
     <locale android:name="kk"/>
     <locale android:name="ky"/>
     <locale android:name="az"/>
-    <locale android:name="he"/>
     <locale android:name="sv"/>
     <locale android:name="ro"/>
 </locale-config>

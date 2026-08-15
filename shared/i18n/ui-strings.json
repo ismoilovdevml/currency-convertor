@@ -404,21 +404,6 @@
     "not_updated": "Hələ yenilənməyib",
     "updating": "Yenilənir…"
   },
-  "he": {
-    "app_title": "ממיר",
-    "status_online": "מקוון",
-    "status_offline": "לא מקוון",
-    "clear": "נקה",
-    "search_hint": "חפש מטבע או מדינה",
-    "convert_from": "המרה מ־",
-    "convert_to": "המרה ל־",
-    "updated_just_now": "עודכן כעת",
-    "updated_minutes": "עודכן לפני %d ד׳",
-    "updated_hours": "עודכן לפני %d ש׳",
-    "updated_days": "עודכן לפני %d ימים",
-    "not_updated": "עדיין לא עודכן",
-    "updating": "מעדכן…"
-  },
   "sv": {
     "app_title": "Omvandlare",
     "status_online": "Online",

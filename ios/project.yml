@@ -62,7 +62,6 @@ targets:
           - kk
           - ky
           - az
-          - he
           - sv
           - ro
         UILaunchScreen: {}
