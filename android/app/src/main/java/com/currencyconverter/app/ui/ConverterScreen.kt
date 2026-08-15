@@ -1,6 +1,7 @@
 package com.currencyconverter.app.ui
 
 import android.content.res.AssetManager
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -48,6 +49,9 @@ import com.currencyconverter.app.viewmodel.SheetTarget
 @Composable
 fun ConverterScreen(state: ConverterDisplay, viewModel: ConverterViewModel, assets: AssetManager) {
     val colors = CurrencyConverterTheme.colors
+
+    // System back closes the open picker sheet instead of exiting the app.
+    BackHandler(enabled = state.sheetOpen) { viewModel.closeSheet() }
 
     Column(
         modifier = Modifier

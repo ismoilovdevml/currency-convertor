@@ -16,24 +16,22 @@ struct HeaderView: View {
 
             Spacer()
 
-            Button {
-                vm.toggleMode()
-            } label: {
-                HStack(spacing: 7) {
-                    Circle()
-                        .fill(theme.accent)
-                        .frame(width: 6, height: 6)
-                    Text(vm.modeLabel)
-                        .font(AppFont.extraBold(11))
-                        .tracking(0.2)
-                }
-                .foregroundStyle(theme.accentText)
-                .padding(.horizontal, 13)
-                .frame(height: 34)
-                .background(Capsule().fill(theme.accentSoft))
+            // Read-only status indicator — Online/Offline is detected
+            // automatically via NWPathMonitor (ConverterViewModel.NetworkMonitor),
+            // never set by the user, so this is intentionally not a Button.
+            HStack(spacing: 7) {
+                Circle()
+                    .fill(vm.isOnline ? Color(hex: "1FB264") : theme.muted)
+                    .frame(width: 6, height: 6)
+                Text(vm.modeLabel)
+                    .font(AppFont.extraBold(11))
+                    .tracking(0.2)
             }
-            .buttonStyle(PressScaleButtonStyle())
-            .accessibilityIdentifier("modeToggleButton")
+            .foregroundStyle(theme.accentText)
+            .padding(.horizontal, 13)
+            .frame(height: 34)
+            .background(Capsule().fill(theme.accentSoft))
+            .accessibilityIdentifier("networkStatusChip")
 
             Button {
                 vm.toggleTheme()

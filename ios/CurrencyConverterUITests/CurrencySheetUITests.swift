@@ -190,6 +190,38 @@ final class CurrencySheetUITests: XCTestCase {
         add(attachment)
     }
 
+    /// Audit proof (temporary, not part of the permanent regression suite):
+    /// searching "guilder" must surface both ANG (Dutch Guilder) and XCG
+    /// (Caribbean Guilder) with their new supranational-currency flag PNGs.
+    func test_zzy_guilderSearchShowsANGAndXCG() throws {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertTrue(app.staticTexts["fromCodeText"].waitForExistence(timeout: 5))
+        // Runs right after test_zzx_'s relaunch — same as test_zzw_ below,
+        // let the launch animation fully settle before tapping.
+        Thread.sleep(forTimeInterval: 1)
+
+        // Same bounded-retry pattern as test_zzw_ below: the first tap right
+        // after a relaunch is occasionally swallowed (SwiftUI hit-test
+        // settle, not app logic).
+        app.buttons["fromCurrencyRow"].tap()
+        let searchField = app.textFields["currencySearchField"]
+        if !searchField.waitForExistence(timeout: 4) {
+            app.buttons["fromCurrencyRow"].tap()
+            XCTAssertTrue(searchField.waitForExistence(timeout: 5), "Currency sheet never opened")
+        }
+        searchField.tap()
+        searchField.typeText("guilder")
+
+        XCTAssertTrue(app.buttons["currencyRow_ANG"].waitForExistence(timeout: 3), "ANG did not surface for 'guilder'")
+        XCTAssertTrue(app.buttons["currencyRow_XCG"].waitForExistence(timeout: 3), "XCG did not surface for 'guilder'")
+
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = "guilder-search-ANG-XCG"
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
     /// Not a functional assertion — just drives the simulator's real Home
     /// button so we can attach a screenshot proving the AppIcon asset
     /// (shared/branding/icon-1024.png, wired via Assets.xcassets/AppIcon.appiconset)

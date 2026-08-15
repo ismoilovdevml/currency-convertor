@@ -42,7 +42,11 @@ final class ConverterViewModel {
     // `xcrun simctl ui booted appearance dark` + a fresh launch produces a
     // dark-mode screenshot). The in-app toggle then overrides + persists it.
     var isDarkMode: Bool
-    var isOfflineMode: Bool = true
+    /// Real network reachability, per docs/SPEC.md: fully automatic (no
+    /// manual toggle) — driven by `NetworkMonitor` (Network framework's
+    /// `NWPathMonitor`). Starts `false` (Offline) until the monitor's first
+    /// callback lands, which happens near-instantly on `startNetworkMonitoring()`.
+    var isOnline: Bool = false
     var sheetSide: ConverterSide?
     var query: String = ""
     /// Currency codes the user starred, most-recently-favorited last —
@@ -59,10 +63,16 @@ final class ConverterViewModel {
 
     private let repository: RatesRepository
     private let defaults: UserDefaults
+    private let networkMonitor: NetworkMonitor
 
-    init(repository: RatesRepository = RatesRepository(), defaults: UserDefaults = .standard) {
+    init(
+        repository: RatesRepository = RatesRepository(),
+        defaults: UserDefaults = .standard,
+        networkMonitor: NetworkMonitor = NetworkMonitor()
+    ) {
         self.repository = repository
         self.defaults = defaults
+        self.networkMonitor = networkMonitor
         self.currencies = repository.loadCurrencies().currencies
         let initial = repository.loadCachedOrSeed()
         self.ratesMap = initial.rates.rates
@@ -76,6 +86,28 @@ final class ConverterViewModel {
             self.isDarkMode = defaults.bool(forKey: PersistenceKey.isDarkMode)
         } else {
             self.isDarkMode = UITraitCollection.current.userInterfaceStyle == .dark
+        }
+
+        startNetworkMonitoring()
+    }
+
+    deinit {
+        networkMonitor.stop()
+    }
+
+    // MARK: - Automatic online/offline (Network framework, no manual toggle)
+
+    private func startNetworkMonitoring() {
+        networkMonitor.start { [weak self] online in
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                let wasOnline = self.isOnline
+                self.isOnline = online
+                // Went offline -> online: fetch fresh rates automatically.
+                if online, !wasOnline {
+                    await self.refreshFromNetwork()
+                }
+            }
         }
     }
 
@@ -127,17 +159,22 @@ final class ConverterViewModel {
         ConverterEngine.rateLineText(fromCode: fromCode, toCode: toCode, fromRate: rate(fromCode), toRate: rate(toCode))
     }
 
-    var modeLabel: String { isOfflineMode ? "Offline" : "Live" }
+    var modeLabel: String { isOnline ? "Online" : "Offline" }
     var themeIcon: String { isDarkMode ? "☀" : "☾" }
 
+    /// Real "last remote fetch" status, per docs/SPEC.md: "Not updated yet"
+    /// until the first successful network fetch, then "Updated Xm ago" /
+    /// "Updated Xh ago" measured against `lastFetchedAt` (only ever set by
+    /// `refreshFromNetwork()` on success — never by the bundled-seed load).
     var updatedLine: String {
         if isFetching { return "Updating…" }
-        if !isOfflineMode, dataSource == .remote, let t = lastFetchedAt, Date().timeIntervalSince(t) < 60 {
-            return "Just now"
-        }
-        guard let t = lastFetchedAt else { return "Offline" }
-        let hours = Int(Date().timeIntervalSince(t) / 3600)
-        return hours < 1 ? "Just now" : "Saved \(hours)h ago"
+        guard let t = lastFetchedAt else { return "Not updated yet" }
+        let elapsed = Date().timeIntervalSince(t)
+        let minutes = Int(elapsed / 60)
+        if minutes < 1 { return "Updated just now" }
+        if minutes < 60 { return "Updated \(minutes)m ago" }
+        let hours = minutes / 60
+        return "Updated \(hours)h ago"
     }
 
     // MARK: - Currency sheet
@@ -245,14 +282,7 @@ final class ConverterViewModel {
         persistTheme()
     }
 
-    func toggleMode() {
-        isOfflineMode.toggle()
-        if !isOfflineMode {
-            Task { await refreshFromNetwork() }
-        }
-    }
-
-    // MARK: - Network refresh (Live mode only — never called at launch)
+    // MARK: - Network refresh (only runs while online — never at launch, see NetworkMonitor)
 
     @MainActor
     func refreshFromNetwork() async {

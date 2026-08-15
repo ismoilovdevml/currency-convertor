@@ -21,6 +21,7 @@
 		67141CEB5BC748FF0F11D612 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */; };
 		6DB9D0E56C243958BCD78BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD40307F21E48E0C221BD5B /* Assets.xcassets */; };
 		752226A153442D166A084263 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 260D074AAE90838A232D6762 /* currencies.json */; };
+		A26ECA093194B132FAD77777 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6360634D19A82AAAF251551 /* NetworkMonitor.swift */; };
 		AAC3BD256EBFEBE3C6C4664A /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFE5F23769C1E087A60CFF56 /* PlusJakartaSans-Medium.ttf */; };
 		B096A908F2B465C3BD689824 /* ConverterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A3F486A3CE1694A1200AE /* ConverterCardView.swift */; };
 		B0B08E9FD7A5162A5FFD3329 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C3264651018A5033F8EAD /* Currency.swift */; };
@@ -83,6 +84,7 @@
 		E9649E019E006F2338830851 /* RateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRowView.swift; sourceTree = "<group>"; };
 		EA986C9FD529393D3980E2C8 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		ED36F2D80CD404D9F6A13687 /* CurrencyConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterApp.swift; sourceTree = "<group>"; };
+		F6360634D19A82AAAF251551 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F63DC9BA410EB22E23B4D5F1 /* ConverterEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterEngineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 		358815A15D94AD5D9FC9A88D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				F6360634D19A82AAAF251551 /* NetworkMonitor.swift */,
 				DA26E6161C2DBE2F550BD929 /* RatesRepository.swift */,
 			);
 			path = Repository;
@@ -355,6 +358,7 @@
 				B9EBC3F1753475DB7D7420AE /* HeaderView.swift in Sources */,
 				D6EBF7E6562D1CF3650C3435 /* KeypadView.swift in Sources */,
 				B3D3C9D72C0612D6F1A6B64D /* LogoGlyph.swift in Sources */,
+				A26ECA093194B132FAD77777 /* NetworkMonitor.swift in Sources */,
 				311F07F3F9AF2912C3D7461A /* RateRowView.swift in Sources */,
 				D4AE330E5F4C2F039302FA11 /* Rates.swift in Sources */,
 				02E769BA7980093EFF1BF55A /* RatesRepository.swift in Sources */,
