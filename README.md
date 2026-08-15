@@ -43,6 +43,8 @@ Every tagged release ships an installable APK. iOS is built from source (see bel
 - **Search** currencies by code or country, with a search icon and auto-focus.
 - **Light & dark themes**, remembered across launches (along with your from/to pair and favourites).
 - **Responsive** — the layout adapts from small phones to large tablets; the keypad never clips.
+- **30 languages** — UI localized into 30 languages (en, uz, ru, es, zh, ar, hi, fr, de, ja, tr, ko, kk, and more; RTL for Arabic/Persian/Hebrew). Currency names come from the OS (CLDR), so they localize too. Follows the device language automatically — no in-app picker.
+- **Long-press ⌫** to clear the whole amount at once.
 
 ## 🏗️ How it works
 
